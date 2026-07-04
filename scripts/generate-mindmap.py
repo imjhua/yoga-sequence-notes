@@ -31,8 +31,27 @@ PRESETS = {
     },
 }
 
+# 어스 톤 — yoga-sequence-mindmapper 앱과 통일
+PALETTE = {
+    "bg": "#F5F2ED",
+    "root_fill": "#5A5A40",
+    "root_stroke": "#4A4A30",
+    "root_title": "#FFFFFF",
+    "root_sub": "#E8E6DC",
+    "step_fill": "#FFFCF9",
+    "step_stroke": "#C8C4B8",
+    "step_title": "#1A1A1A",
+    "step_sub": "#5A5A40",
+    "peak_fill": "#EBE8E2",
+    "peak_stroke": "#5A5A40",
+    "peak_title": "#1A1A1A",
+    "peak_sub": "#4A4A30",
+    "line": "#B8B4A8",
+}
+
 
 def build_svg(root, steps, peak):
+    c = PALETTE
     W, box_w = 380, 320
     x = (W - box_w) // 2
     h_root, h_step, line_h, gap_top = 64, 58, 20, 24
@@ -41,27 +60,27 @@ def build_svg(root, steps, peak):
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {total_h}" font-family="system-ui, sans-serif">',
-        f'<rect width="{W}" height="{total_h}" fill="#FAFAF8"/>',
-        f'<rect x="{x}" y="{gap_top}" width="{box_w}" height="{h_root}" rx="12" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="2"/>',
-        f'<text x="{cx}" y="{gap_top+26}" text-anchor="middle" font-size="16" font-weight="700" fill="#5B21B6">{root[0]}</text>',
-        f'<text x="{cx}" y="{gap_top+48}" text-anchor="middle" font-size="12" fill="#7C3AED">{root[1]}</text>',
+        f'<rect width="{W}" height="{total_h}" fill="{c["bg"]}"/>',
+        f'<rect x="{x}" y="{gap_top}" width="{box_w}" height="{h_root}" rx="12" fill="{c["root_fill"]}" stroke="{c["root_stroke"]}" stroke-width="1.5"/>',
+        f'<text x="{cx}" y="{gap_top+26}" text-anchor="middle" font-size="16" font-weight="700" fill="{c["root_title"]}">{root[0]}</text>',
+        f'<text x="{cx}" y="{gap_top+48}" text-anchor="middle" font-size="12" fill="{c["root_sub"]}">{root[1]}</text>',
     ]
     cy = gap_top + h_root
     for title, sub in steps:
         cy += line_h
         lines += [
-            f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="#A8A29E" stroke-width="2"/>',
-            f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>',
-            f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">{title}</text>',
-            f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="#15803D">{sub}</text>',
+            f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="{c["line"]}" stroke-width="1.5"/>',
+            f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="{c["step_fill"]}" stroke="{c["step_stroke"]}" stroke-width="1"/>',
+            f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="600" fill="{c["step_title"]}">{title}</text>',
+            f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="{c["step_sub"]}">{sub}</text>',
         ]
         cy += h_step
     cy += line_h
     lines += [
-        f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="#A8A29E" stroke-width="2"/>',
-        f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="#FFEDD5" stroke="#F97316" stroke-width="2"/>',
-        f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="700" fill="#9A3412">{peak[0]}</text>',
-        f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="#C2410C">{peak[1]}</text>',
+        f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="{c["line"]}" stroke-width="1.5"/>',
+        f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="{c["peak_fill"]}" stroke="{c["peak_stroke"]}" stroke-width="2"/>',
+        f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="700" fill="{c["peak_title"]}">{peak[0]}</text>',
+        f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="{c["peak_sub"]}">{peak[1]}</text>',
         '</svg>',
     ]
     return '\n'.join(lines)

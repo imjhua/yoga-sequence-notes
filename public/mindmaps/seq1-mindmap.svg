@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 814" font-family="system-ui, sans-serif">
-<rect width="380" height="814" fill="#FAFAF8"/>
-<rect x="30" y="24" width="320" height="64" rx="12" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="2"/>
-<text x="190" y="50" text-anchor="middle" font-size="16" font-weight="700" fill="#5B21B6">사마코나사나</text>
-<text x="190" y="72" text-anchor="middle" font-size="12" fill="#7C3AED">목표자세 · 골반 움직임</text>
-<line x1="190" y1="88" x2="190" y2="108" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="108" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="132" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">수카사나</text>
-<text x="190" y="152" text-anchor="middle" font-size="11" fill="#15803D">어깨 · 가슴 이완</text>
-<line x1="190" y1="166" x2="190" y2="186" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="186" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="210" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">받다코나사나</text>
-<text x="190" y="230" text-anchor="middle" font-size="11" fill="#15803D">고관절 · 서혜부 스트레칭</text>
-<line x1="190" y1="244" x2="190" y2="264" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="264" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="288" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">파르바타</text>
-<text x="190" y="308" text-anchor="middle" font-size="11" fill="#15803D">척추 신장</text>
-<line x1="190" y1="322" x2="190" y2="342" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="342" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="366" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">엎드려서</text>
-<text x="190" y="386" text-anchor="middle" font-size="11" fill="#15803D">고관절 이완</text>
-<line x1="190" y1="400" x2="190" y2="420" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="420" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="444" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">블록 · 다리 뻗기</text>
-<text x="190" y="464" text-anchor="middle" font-size="11" fill="#15803D">햄스트링 스트레칭</text>
-<line x1="190" y1="478" x2="190" y2="498" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="498" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="522" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">블록 · 바즈라사나</text>
-<text x="190" y="542" text-anchor="middle" font-size="11" fill="#15803D">발목 · 허벅지 앞쪽</text>
-<line x1="190" y1="556" x2="190" y2="576" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="576" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="600" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">무릎산</text>
-<text x="190" y="620" text-anchor="middle" font-size="11" fill="#15803D">고관절 비틀기</text>
-<line x1="190" y1="634" x2="190" y2="654" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="654" width="320" height="58" rx="10" fill="#DCFCE7" stroke="#4ADE80" stroke-width="1.5"/>
-<text x="190" y="678" text-anchor="middle" font-size="14" font-weight="600" fill="#166534">한쪽다리 뒤 · 발등</text>
-<text x="190" y="698" text-anchor="middle" font-size="11" fill="#15803D">고관절 · 옆구리 비틀기</text>
-<line x1="190" y1="712" x2="190" y2="732" stroke="#A8A29E" stroke-width="2"/>
-<rect x="30" y="732" width="320" height="58" rx="10" fill="#FFEDD5" stroke="#F97316" stroke-width="2"/>
-<text x="190" y="756" text-anchor="middle" font-size="14" font-weight="700" fill="#9A3412">사마코나사나</text>
-<text x="190" y="776" text-anchor="middle" font-size="11" fill="#C2410C">피크 — 내전근 · 햄스트링 이완</text>
+<rect width="380" height="814" fill="#F5F2ED"/>
+<rect x="30" y="24" width="320" height="64" rx="12" fill="#5A5A40" stroke="#4A4A30" stroke-width="1.5"/>
+<text x="190" y="50" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">사마코나사나</text>
+<text x="190" y="72" text-anchor="middle" font-size="12" fill="#E8E6DC">목표자세 · 골반 움직임</text>
+<line x1="190" y1="88" x2="190" y2="108" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="108" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="132" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">수카사나</text>
+<text x="190" y="152" text-anchor="middle" font-size="11" fill="#5A5A40">어깨 · 가슴 이완</text>
+<line x1="190" y1="166" x2="190" y2="186" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="186" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="210" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">받다코나사나</text>
+<text x="190" y="230" text-anchor="middle" font-size="11" fill="#5A5A40">고관절 · 서혜부 스트레칭</text>
+<line x1="190" y1="244" x2="190" y2="264" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="264" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="288" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">파르바타</text>
+<text x="190" y="308" text-anchor="middle" font-size="11" fill="#5A5A40">척추 신장</text>
+<line x1="190" y1="322" x2="190" y2="342" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="342" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="366" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">엎드려서</text>
+<text x="190" y="386" text-anchor="middle" font-size="11" fill="#5A5A40">고관절 이완</text>
+<line x1="190" y1="400" x2="190" y2="420" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="420" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="444" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">블록 · 다리 뻗기</text>
+<text x="190" y="464" text-anchor="middle" font-size="11" fill="#5A5A40">햄스트링 스트레칭</text>
+<line x1="190" y1="478" x2="190" y2="498" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="498" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="522" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">블록 · 바즈라사나</text>
+<text x="190" y="542" text-anchor="middle" font-size="11" fill="#5A5A40">발목 · 허벅지 앞쪽</text>
+<line x1="190" y1="556" x2="190" y2="576" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="576" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="600" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">무릎산</text>
+<text x="190" y="620" text-anchor="middle" font-size="11" fill="#5A5A40">고관절 비틀기</text>
+<line x1="190" y1="634" x2="190" y2="654" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="654" width="320" height="58" rx="10" fill="#FFFCF9" stroke="#C8C4B8" stroke-width="1"/>
+<text x="190" y="678" text-anchor="middle" font-size="14" font-weight="600" fill="#1A1A1A">한쪽다리 뒤 · 발등</text>
+<text x="190" y="698" text-anchor="middle" font-size="11" fill="#5A5A40">고관절 · 옆구리 비틀기</text>
+<line x1="190" y1="712" x2="190" y2="732" stroke="#B8B4A8" stroke-width="1.5"/>
+<rect x="30" y="732" width="320" height="58" rx="10" fill="#EBE8E2" stroke="#5A5A40" stroke-width="2"/>
+<text x="190" y="756" text-anchor="middle" font-size="14" font-weight="700" fill="#1A1A1A">사마코나사나</text>
+<text x="190" y="776" text-anchor="middle" font-size="11" fill="#4A4A30">피크 — 내전근 · 햄스트링 이완</text>
 </svg>
