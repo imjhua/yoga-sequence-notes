@@ -23,16 +23,6 @@ updated: 2026-07-04
 - 블럭: 받다코나, 트리앙가, 블럭 시팅에서 적극 활용
 - B사이드·반대 다리 빠뜨리지 않기
 
-## 초기 프롬프트
-
-수업 정리의 원본 텍스트입니다. 수정이 필요할 때 복사해서 AI에 다시 전달하세요.
-
-<script setup>
-import sourcePrompt from './prompts/seq1-samakonasana.prompt.txt?raw'
-</script>
-
-<CopyPrompt :text="sourcePrompt" label="seq1 · 사마코나사나 원본" />
-
 ---
 
 ## 1. 시팅 오프닝
@@ -169,3 +159,13 @@ import sourcePrompt from './prompts/seq1-samakonasana.prompt.txt?raw'
 ## 마인드맵
 
 ![시퀀스 마인드맵](/mindmaps/seq1-mindmap.svg)
+
+## 초기 프롬프트
+
+수업 정리의 원본 텍스트입니다. 수정이 필요할 때 복사해서 AI에 다시 전달하세요.
+
+<script setup>
+import sourcePrompt from './prompts/seq1-samakonasana.prompt.txt?raw'
+</script>
+
+<CopyPrompt :text="sourcePrompt" label="seq1 · 사마코나사나 원본" />
