@@ -49,4 +49,4 @@ export VERCEL_TOKEN=your_token
 ./scripts/setup-vercel.sh
 ```
 
-에이전트 스킬: `~/.claude/skills/yoga-sequence/SKILL.md`
+에이전트 스킬: [skills/yoga-sequence/SKILL.md](skills/yoga-sequence/SKILL.md) (Git source of truth)
