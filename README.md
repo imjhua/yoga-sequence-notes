@@ -32,6 +32,16 @@ npm run dev
 
 GitHub push → Vercel 자동 배포 (`vercel.json` 포함)
 
+**imjhua 계정 (이 프로젝트 전용):** [docs/github-setup.md](docs/github-setup.md)
+
+```bash
+# 최초 1회
+./scripts/imjhua-gh.sh auth login -h github.com -p ssh -s repo,read:org
+
+# repo 생성 & push
+./scripts/push-to-github.sh
+```
+
 ```bash
 npm run build
 npx vercel --prod
