@@ -151,3 +151,71 @@
     top: var(--vp-nav-height);
   }
 }
+
+/* ── 초기 프롬프트 + 복사 버튼 ── */
+.copy-prompt {
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+}
+
+.copy-prompt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  background: var(--vp-c-bg-alt);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.copy-prompt-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+}
+
+.copy-prompt-btn {
+  flex-shrink: 0;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  background: #5a5a40;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.copy-prompt-btn:active {
+  background: #4a4a30;
+}
+
+.copy-prompt-body {
+  margin: 0;
+  padding: 1rem;
+  max-height: 280px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--vp-c-text-1);
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .copy-prompt-body {
+    max-height: 220px;
+    font-size: 0.875rem;
+  }
+
+  .copy-prompt-btn {
+    padding: 0.45rem 1rem;
+    min-height: 36px;
+  }
+}

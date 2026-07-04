@@ -3,6 +3,7 @@ title: 힐링 - 고관절 열기
 peak_pose: 사마코나사나
 theme: 힐링
 duration: 90
+source_prompt: sequences/prompts/seq1-samakonasana.prompt.txt
 updated: 2026-07-04
 ---
 
@@ -21,6 +22,16 @@ updated: 2026-07-04
 - 날개짓은 **크게** — 내전근 깨우기 핵심
 - 블럭: 받다코나, 트리앙가, 블럭 시팅에서 적극 활용
 - B사이드·반대 다리 빠뜨리지 않기
+
+## 초기 프롬프트
+
+수업 정리의 원본 텍스트입니다. 수정이 필요할 때 복사해서 AI에 다시 전달하세요.
+
+<script setup>
+import sourcePrompt from './prompts/seq1-samakonasana.prompt.txt?raw'
+</script>
+
+<CopyPrompt :text="sourcePrompt" label="seq1 · 사마코나사나 원본" />
 
 ---
 
