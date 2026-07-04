@@ -1,14 +1,15 @@
 ---
-title: 힐링 - 몸 앞면 깨우기
+title: 힐링-우르드바 다누라사나
 peak_pose: 우르드바 다누라사나
 theme: 힐링
+focus: 몸 앞면 깨우기
 duration: 75
 updated: 2026-07-04
 ---
 
-# 힐링 - 몸 앞면 깨우기
+# 힐링-우르드바 다누라사나
 
-**피크 포즈:** 우르드바 다누라사나 (Urdhva Dhanurasana)
+**포커스:** 몸 앞면 깨우기 · **피크:** 우르드바 다누라사나 (Urdhva Dhanurasana)
 
 ## 개요
 

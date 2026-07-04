@@ -20,10 +20,38 @@
 
 .vp-doc h2 {
   font-size: 1.2rem;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--vp-c-divider);
+  margin: 1.25rem 0 0.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0;
+  border-top: 1px solid var(--vp-c-divider);
+  border-bottom: none !important;
+}
+
+/* 개요·수업 메모 — 구분선 없음 */
+.vp-doc h2:nth-of-type(-n + 2) {
+  margin-top: 1rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.vp-doc h2:first-of-type {
+  margin-top: 0.75rem;
+}
+
+/* MD --- 중복 구분선 제거 */
+.vp-doc hr {
+  display: none;
+}
+
+/* 표 바로 다음 섹션 — 표 bottom border만, h2 상단선 제거 */
+.vp-doc table + h2 {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 1rem;
+}
+
+.vp-doc blockquote + h2 {
+  margin-top: 1rem;
 }
 
 .vp-doc h3 {
@@ -48,6 +76,8 @@
   -webkit-overflow-scrolling: touch;
   font-size: var(--seq-table-font);
   margin: 1rem 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+  box-sizing: border-box;
 }
 
 .vp-doc thead th {
@@ -150,6 +180,7 @@
   .vp-doc table {
     display: table;
     overflow-x: visible;
+    border-bottom: none;
   }
 }
 
@@ -174,24 +205,27 @@
     padding-bottom: 1rem;
   }
 
-  /* h2: VitePress 기본 border-top + 48px margin 제거, 컴팩트 */
+  /* h2 — 전역 규칙과 동일, 모바일 여백만 축소 */
   .vp-doc h2 {
-    margin: 1.25rem 0 0.5rem !important;
+    margin: 1rem 0 0.375rem !important;
+    padding-top: 0.625rem !important;
+  }
+
+  .vp-doc h2:nth-of-type(-n + 2) {
     padding-top: 0 !important;
-    border-top: none !important;
-    border-bottom-width: 1px;
   }
 
   .vp-doc h2:first-of-type {
     margin-top: 0.75rem !important;
   }
 
-  /* MD --- 구분선 + h2 이중 여백 줄이기 */
-  .vp-doc hr {
-    margin: 0.625rem 0 !important;
+  .vp-doc table + h2 {
+    margin-top: 0.75rem !important;
+    padding-top: 0 !important;
+    border-top: none !important;
   }
 
-  .vp-doc hr + h2 {
+  .vp-doc blockquote + h2 {
     margin-top: 0.75rem !important;
   }
 
