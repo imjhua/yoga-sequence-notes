@@ -1,0 +1,9 @@
+.vp-doc img[alt*="마인드맵"],
+.vp-doc img[src*="mindmap"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}

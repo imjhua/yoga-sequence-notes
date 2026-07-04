@@ -24,7 +24,7 @@ function parseFrontmatter(content) {
 }
 
 function findImageRefs(content) {
-  return [...content.matchAll(/!\[[^\]]*\]\((\.\/[^)]+)\)/g)].map((m) => m[1]);
+  return [...content.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)].map((m) => m[1]);
 }
 
 function validateFile(filePath) {
@@ -37,12 +37,17 @@ function validateFile(filePath) {
   if (!fm.peak_pose) errors.push('Missing frontmatter: peak_pose');
 
   const images = findImageRefs(content);
-  if (images.length === 0) errors.push('No embedded image found (![...](./assets/...))');
+  if (images.length === 0) errors.push('No embedded image found (![...](/sequences/assets/...))');
 
   for (const img of images) {
-    const resolved = path.resolve(path.dirname(filePath), img);
+    let resolved;
+    if (img.startsWith('/')) {
+      resolved = path.join(root, 'public', img);
+    } else {
+      resolved = path.resolve(path.dirname(filePath), img);
+    }
     if (!fs.existsSync(resolved)) {
-      errors.push(`Image not found: ${img}`);
+      errors.push(`Image not found: ${img} (checked ${path.relative(root, resolved)})`);
     }
   }
 

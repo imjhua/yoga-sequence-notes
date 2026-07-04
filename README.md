@@ -6,10 +6,10 @@
 
 ```
 sequences/
-├── index.md                          # 시퀀스 목록
-├── seq0-urdhva-dhanurasana.md        # 수업 노트
-└── assets/
-    └── seq0-mindmap.svg              # 마인드맵 이미지
+├── index.md
+├── seq0-urdhva-dhanurasana.md
+└── seq1-samakonasana.md
+public/sequences/assets/     ← 마인드맵 SVG/PNG (정적 파일)
 ```
 
 ## 로컬 실행
@@ -24,9 +24,8 @@ npm run dev
 ## 시퀀스 추가
 
 1. `sequences/seq{N}-{slug}.md` 작성 (본문에 `![마인드맵](./assets/...)` 삽입)
-2. `sequences/assets/` 에 마인드맵 이미지 (SVG/PNG) 저장
-3. `sequences/index.md` 목록에 한 줄 추가
-4. `.vitepress/config.ts` sidebar에 링크 추가
+2. `public/sequences/assets/` 에 마인드맵 이미지 (SVG/PNG) 저장
+3. MD 본문: `![마인드맵](/sequences/assets/seq{N}-mindmap.svg)`
 
 ## 배포
 

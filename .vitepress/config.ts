@@ -14,6 +14,7 @@ export default defineConfig({
           text: '시퀀스 목록',
           items: [
             { text: '우르드바 다누라사나', link: '/sequences/seq0-urdhva-dhanurasana' },
+            { text: '사마코나사나', link: '/sequences/seq1-samakonasana' },
           ],
         },
       ],

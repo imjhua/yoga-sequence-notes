@@ -12,7 +12,7 @@ updated: 2026-07-04
 
 ## 마인드맵
 
-![시퀀스 마인드맵](./assets/seq0-mindmap.svg)
+![시퀀스 마인드맵](/sequences/assets/seq0-mindmap.svg)
 
 ## 개요
 
