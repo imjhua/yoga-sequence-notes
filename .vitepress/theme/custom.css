@@ -55,14 +55,30 @@
   font-size: 0.8125rem;
 }
 
+/* 시퀀스 표: 포즈 | L1 cue | L2 cue */
 .vp-doc tbody td {
-  min-width: 4.5rem;
   vertical-align: top;
-  padding: 0.5rem 0.65rem;
+  padding: 0.45rem 0.5rem;
+}
+
+.vp-doc tbody td:first-child {
+  min-width: 5.5rem;
+  max-width: 7rem;
+  white-space: nowrap;
+}
+
+.vp-doc tbody td:first-child strong {
+  font-weight: 700;
 }
 
 .vp-doc tbody td:nth-child(2) {
-  min-width: 7rem;
+  min-width: 6rem;
+}
+
+.vp-doc tbody td:nth-child(3) {
+  min-width: 5rem;
+  color: var(--vp-c-text-2);
+  font-size: 0.9375em;
 }
 
 /* 표 스크롤 힌트 (모바일) */
