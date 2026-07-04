@@ -82,21 +82,20 @@
 .vp-doc img[src*="mindmap"] {
   display: block;
   width: 100%;
-  max-width: 100%;
+  max-width: 420px;
   height: auto;
   margin: 0.75rem auto 1.5rem;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  border: none;
+  border-radius: 12px;
   box-sizing: border-box;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 768px) {
   .vp-doc img[alt*="마인드맵"],
   .vp-doc img[src*="mindmap"] {
-    /* SVG 텍스트가 작을 때 핀치·스크롤로 확대 가능 */
-    min-width: 320px;
-    max-width: none;
-    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .vp-doc h2#마인드맵,
