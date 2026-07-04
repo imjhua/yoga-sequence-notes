@@ -19,7 +19,14 @@ npm install
 npm run dev
 ```
 
-로컬 미리보기: `npm run dev` 실행 후 브라우저에서 확인.
+## 모바일 (수업 중 핸드폰)
+
+- VitePress 기본: 햄버거 메뉴, 반응형 레이아웃
+- `.vitepress/theme/custom.css`: 표 가로 스크롤, 본문 글자 크기, 마인드맵 터치 스크롤
+- **마인드맵 SVG**: 글자 11px 이상 권장 (작으면 핀치 확대)
+- **표**: 포즈명 열이 넓으면 가로 스와이프
+
+로컬에서 모바일 확인: Chrome DevTools → 기기 툴바 (375px)
 
 ## 시퀀스 추가
 

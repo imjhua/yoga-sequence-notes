@@ -1,9 +1,154 @@
+/* ── Mobile-first: 수업 중 핸드폰으로 보기 ── */
+
+:root {
+  --seq-font-base: 16px;
+  --seq-line-height: 1.65;
+  --seq-table-font: 14px;
+}
+
+/* 본문 가독성 */
+.vp-doc {
+  font-size: var(--seq-font-base);
+  line-height: var(--seq-line-height);
+}
+
+.vp-doc h1 {
+  font-size: 1.5rem;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+
+.vp-doc h2 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc h3 {
+  font-size: 1.05rem;
+  margin-top: 1.25rem;
+}
+
+.vp-doc p,
+.vp-doc li {
+  font-size: var(--seq-font-base);
+}
+
+.vp-doc strong {
+  font-weight: 600;
+}
+
+/* 표: 가로 스크롤 + 터치 스크롤 */
+.vp-doc table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: var(--seq-table-font);
+  margin: 1rem 0;
+}
+
+.vp-doc thead th {
+  white-space: nowrap;
+  font-size: 0.8125rem;
+}
+
+.vp-doc tbody td {
+  min-width: 4.5rem;
+  vertical-align: top;
+  padding: 0.5rem 0.65rem;
+}
+
+.vp-doc tbody td:nth-child(2) {
+  min-width: 7rem;
+}
+
+/* 표 스크롤 힌트 (모바일) */
+@media (max-width: 768px) {
+  .vp-doc table {
+    border-left: 3px solid var(--vp-c-brand-1);
+  }
+}
+
+/* 마인드맵: 화면 너비에 맞추고, 필요 시 가로 스크롤 */
+.vp-doc h2#마인드맵 + p,
+.vp-doc h2[id*="mindmap"] + p {
+  margin: 0;
+}
+
 .vp-doc img[alt*="마인드맵"],
 .vp-doc img[src*="mindmap"] {
   display: block;
+  width: 100%;
   max-width: 100%;
   height: auto;
-  margin: 1rem auto;
+  margin: 0.75rem auto 1.5rem;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .vp-doc img[alt*="마인드맵"],
+  .vp-doc img[src*="mindmap"] {
+    /* SVG 텍스트가 작을 때 핀치·스크롤로 확대 가능 */
+    min-width: 320px;
+    max-width: none;
+    width: 100%;
+  }
+
+  .vp-doc h2#마인드맵,
+  .vp-doc h2[id*="마인드맵"] {
+    scroll-margin-top: 4rem;
+  }
+}
+
+/* 인용·메모 블록 */
+.vp-doc blockquote {
+  font-size: 0.9375rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+/* iPhone safe area */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .VPContent {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* ── Desktop ── */
+@media (min-width: 769px) {
+  :root {
+    --seq-font-base: 15px;
+    --seq-table-font: 14px;
+  }
+
+  .vp-doc h1 {
+    font-size: 1.75rem;
+  }
+
+  .vp-doc table {
+    display: table;
+    overflow-x: visible;
+  }
+}
+
+/* ── 모바일 레이아웃 (VitePress 기본 + 보완) ── */
+@media (max-width: 768px) {
+  .VPDoc .content-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .vp-doc {
+    padding-bottom: 2rem;
+  }
+
+  /* 사이드바·햄버거는 VitePress 기본 제공 */
+  .VPLocalNav {
+    top: var(--vp-nav-height);
+  }
 }

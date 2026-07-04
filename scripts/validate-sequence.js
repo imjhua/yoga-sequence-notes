@@ -42,7 +42,7 @@ function validateFile(filePath) {
   for (const img of images) {
     let resolved;
     if (img.startsWith('/')) {
-      resolved = path.join(root, 'public', img);
+      resolved = path.join(root, 'public', img.slice(1));
     } else {
       resolved = path.resolve(path.dirname(filePath), img);
     }

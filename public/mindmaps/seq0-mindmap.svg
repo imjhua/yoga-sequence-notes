@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="system-ui, sans-serif">
+  <rect width="900" height="520" fill="#F5F2ED"/>
+  <text x="450" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#1A1A1A">힐링 - 몸 앞면 깨우기</text>
+  <text x="450" y="58" text-anchor="middle" font-size="13" fill="#5A5A40">피크: 우르드바 다누라사나</text>
+  <ellipse cx="450" cy="260" rx="95" ry="42" fill="#5A5A40"/>
+  <text x="450" y="256" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">우르드바</text>
+  <text x="450" y="274" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">다누라사나</text>
+  <rect x="80" y="200" width="120" height="52" rx="10" fill="#fff" stroke="#5A5A40" stroke-width="1.5"/>
+  <text x="140" y="232" text-anchor="middle" fill="#1A1A1A" font-size="14">시팅</text>
+  <line x1="200" y1="226" x2="355" y2="250" stroke="#5A5A40" stroke-width="1.5"/>
+  <rect x="680" y="120" width="120" height="52" rx="10" fill="#fff" stroke="#5A5A40" stroke-width="1.5"/>
+  <text x="740" y="152" text-anchor="middle" fill="#1A1A1A" font-size="14">빌드업</text>
+  <line x1="680" y1="146" x2="545" y2="235" stroke="#5A5A40" stroke-width="1.5"/>
+  <rect x="680" y="340" width="120" height="52" rx="10" fill="#fff" stroke="#5A5A40" stroke-width="1.5"/>
+  <text x="740" y="372" text-anchor="middle" fill="#1A1A1A" font-size="14">쿨다운</text>
+  <line x1="680" y1="366" x2="545" y2="285" stroke="#5A5A40" stroke-width="1.5"/>
+  <rect x="80" y="340" width="120" height="52" rx="10" fill="#fff" stroke="#5A5A40" stroke-width="1.5"/>
+  <text x="140" y="372" text-anchor="middle" fill="#1A1A1A" font-size="14">사바사나</text>
+  <line x1="200" y1="366" x2="355" y2="285" stroke="#5A5A40" stroke-width="1.5"/>
+</svg>
