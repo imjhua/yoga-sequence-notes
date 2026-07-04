@@ -15,7 +15,7 @@
 .vp-doc h1 {
   font-size: 1.5rem;
   line-height: 1.35;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .vp-doc h2 {
@@ -96,11 +96,13 @@
   .vp-doc img[src*="mindmap"] {
     max-width: 100%;
     min-width: 0;
+    margin: 0.5rem auto 1rem;
+    border-radius: 8px;
   }
 
   .vp-doc h2#마인드맵,
   .vp-doc h2[id*="마인드맵"] {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 3.5rem;
   }
 }
 
@@ -111,10 +113,10 @@
   margin: 1rem 0;
 }
 
-/* iPhone safe area */
+/* iPhone safe area — 하단만 */
 @supports (padding: env(safe-area-inset-bottom)) {
-  .VPContent {
-    padding-bottom: env(safe-area-inset-bottom);
+  .VPDoc {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom)) !important;
   }
 }
 
@@ -135,20 +137,96 @@
   }
 }
 
-/* ── 모바일 레이아웃 (VitePress 기본 + 보완) ── */
+/* ── 모바일: 여백 최소화, 컨텐츠 집중 ── */
 @media (max-width: 768px) {
+  /* VitePress 기본: padding 32px 24px 96px → 축소 */
+  .VPDoc {
+    padding: 0.75rem 0.625rem 2rem !important;
+  }
+
   .VPDoc .content-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important;
   }
 
   .vp-doc {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 
-  /* 사이드바·햄버거는 VitePress 기본 제공 */
-  .VPLocalNav {
-    top: var(--vp-nav-height);
+  /* h2: VitePress 기본 border-top + 48px margin 제거, 컴팩트 */
+  .vp-doc h2 {
+    margin: 1.25rem 0 0.5rem !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+    border-bottom-width: 1px;
+  }
+
+  .vp-doc h2:first-of-type {
+    margin-top: 0.75rem !important;
+  }
+
+  /* MD --- 구분선 + h2 이중 여백 줄이기 */
+  .vp-doc hr {
+    margin: 0.625rem 0 !important;
+  }
+
+  .vp-doc hr + h2 {
+    margin-top: 0.75rem !important;
+  }
+
+  .vp-doc h3 {
+    margin-top: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .vp-doc p,
+  .vp-doc summary {
+    margin: 0.5rem 0 !important;
+    line-height: 1.6;
+  }
+
+  .vp-doc ul,
+  .vp-doc ol {
+    padding-left: 1rem;
+    margin: 0.375rem 0;
+  }
+
+  .vp-doc li + li {
+    margin-top: 0.25rem;
+  }
+
+  .vp-doc table {
+    margin: 0.5rem 0;
+  }
+
+  .vp-doc tbody td {
+    padding: 0.375rem 0.5rem;
+  }
+
+  .vp-doc blockquote {
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* 로컬 네비(시퀀스 메뉴 바) 컴팩트 */
+  .VPLocalNav .menu {
+    padding: 8px 12px 7px;
+  }
+
+  .VPLocalNav .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* 푸터 여백 */
+  .VPDocFooter {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
   }
 }
 
@@ -209,9 +287,19 @@
 }
 
 @media (max-width: 768px) {
+  .copy-prompt {
+    margin: 0.75rem 0 1rem;
+    border-radius: 8px;
+  }
+
+  .copy-prompt-header {
+    padding: 0.5rem 0.75rem;
+  }
+
   .copy-prompt-body {
     max-height: 220px;
     font-size: 0.875rem;
+    padding: 0.75rem;
   }
 
   .copy-prompt-btn {

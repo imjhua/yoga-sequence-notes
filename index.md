@@ -1,5 +1,19 @@
-# Yoga Sequences
+---
+title: Yoga Sequences
+head:
+  - - meta
+    - http-equiv: refresh
+      content: 0; url=/sequences/
+---
 
-요가 수업 시퀀스를 마크다운과 마인드맵 이미지로 정리한 노트입니다.
+<script setup>
+import { useRouter } from 'vitepress'
+import { onMounted } from 'vue'
 
-[시퀀스 보기 →](/sequences/)
+const router = useRouter()
+onMounted(() => {
+  router.go('/sequences/')
+})
+</script>
+
+[시퀀스 목록으로 이동](/sequences/)

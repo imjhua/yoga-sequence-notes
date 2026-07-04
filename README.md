@@ -34,23 +34,19 @@ npm run dev
 2. `public/sequences/assets/` 에 마인드맵 이미지 (SVG/PNG) 저장
 3. MD 본문: `![마인드맵](/sequences/assets/seq{N}-mindmap.svg)`
 
-## 배포
+## 배포 (Vercel)
 
-GitHub push → Vercel 자동 배포 (`vercel.json` 포함)
+상세: [docs/vercel-setup.md](docs/vercel-setup.md)
 
-**imjhua 계정 (이 프로젝트 전용):** [docs/github-setup.md](docs/github-setup.md)
+1. https://github.com/apps/vercel → imjhua 계정에 설치
+2. https://vercel.com/new → `imjhua/yoga-sequence-notes` import
+3. Output Directory: `.vitepress/dist`
 
-```bash
-# 최초 1회
-./scripts/imjhua-gh.sh auth login -h github.com -p ssh -s repo,read:org
-
-# repo 생성 & push
-./scripts/push-to-github.sh
-```
+또는:
 
 ```bash
-npm run build
-npx vercel --prod
+export VERCEL_TOKEN=your_token
+./scripts/setup-vercel.sh
 ```
 
 에이전트 스킬: `~/.claude/skills/yoga-sequence/SKILL.md`

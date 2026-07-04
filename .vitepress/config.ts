@@ -5,7 +5,7 @@ export default defineConfig({
   description: '요가 수업 시퀀스 노트',
   lang: 'ko-KR',
   themeConfig: {
-    // 모바일: 햄버거 → 시퀀스 목록 (VitePress 기본)
+    logoLink: '/sequences/',
     sidebarMenuLabel: '시퀀스',
     returnToTopLabel: '맨 위로',
     nav: [
