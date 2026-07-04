@@ -4,6 +4,7 @@ export default defineConfig({
   title: 'Yoga Sequences',
   description: '요가 수업 시퀀스 노트',
   lang: 'ko-KR',
+  srcExclude: ['**/skills/**', 'README.md'],
   themeConfig: {
     logoLink: '/sequences/',
     sidebarMenuLabel: '시퀀스',
