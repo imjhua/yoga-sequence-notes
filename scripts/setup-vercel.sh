@@ -11,11 +11,38 @@ cd "$ROOT"
 if [[ -z "${VERCEL_TOKEN:-}" ]]; then
   echo "VERCEL_TOKEN이 필요합니다."
   echo ""
-  echo "1. https://vercel.com/account/tokens 에서 토큰 생성 (imjhua 계정)"
-  echo "2. export VERCEL_TOKEN=your_token"
+  echo "1. https://vercel.com/account/tokens 에서 토큰 생성 (imjhua Vercel 계정)"
+  echo "2. export VERCEL_TOKEN=your_vercel_token"
   echo "3. ./scripts/setup-vercel.sh"
   exit 1
 fi
+
+if [[ "${VERCEL_TOKEN}" == ghp_* || "${VERCEL_TOKEN}" == github_* ]]; then
+  echo "❌ GitHub 토큰(ghp_...)을 넣으셨습니다. Vercel 토큰이 필요합니다."
+  echo ""
+  echo "  GitHub 토큰 → github.com (git push용)"
+  echo "  Vercel 토큰  → vercel.com/account/tokens (배포용)"
+  echo ""
+  echo "대시보드로 연결하려면: https://vercel.com/new"
+  exit 1
+fi
+
+echo "→ Vercel 토큰 확인"
+WHOAMI=$(curl -sS -w "\nHTTP:%{http_code}" "https://api.vercel.com/v2/user" \
+  -H "Authorization: Bearer ${VERCEL_TOKEN}")
+WHO_HTTP=$(echo "$WHOAMI" | tail -1 | cut -d: -f2)
+WHO_BODY=$(echo "$WHOAMI" | sed '$d')
+
+if [[ "$WHO_HTTP" != "200" ]]; then
+  echo "❌ Vercel 토큰이 유효하지 않습니다 (HTTP ${WHO_HTTP})"
+  echo "$WHO_BODY" | python3 -m json.tool 2>/dev/null || echo "$WHO_BODY"
+  echo ""
+  echo "https://vercel.com/account/tokens 에서 새 토큰을 만드세요 (imjhua 계정)."
+  exit 1
+fi
+
+VERCEL_USER=$(echo "$WHO_BODY" | python3 -c "import sys,json; u=json.load(sys.stdin).get('user',{}); print(u.get('username') or u.get('email') or '?')" 2>/dev/null)
+echo "   로그인: ${VERCEL_USER}"
 
 PROJECT_NAME="yoga-sequence-notes"
 REPO="imjhua/yoga-sequence-notes"
@@ -47,8 +74,15 @@ echo "$BODY" | python3 -m json.tool 2>/dev/null || echo "$BODY"
 
 if [[ "$HTTP" != "200" && "$HTTP" != "201" ]]; then
   echo ""
-  echo "실패 (HTTP ${HTTP}). GitHub Vercel App 설치 여부를 확인하세요:"
-  echo "  https://github.com/apps/vercel"
+  if echo "$BODY" | grep -q 'invalidToken'; then
+    echo "❌ Vercel 토큰이 잘못되었습니다. GitHub 토큰(ghp_)이 아닌 Vercel 토큰을 사용하세요."
+  elif echo "$BODY" | grep -q 'GitHub integration'; then
+    echo "❌ GitHub 연동 필요: https://github.com/apps/vercel 을 imjhua 계정에 설치하세요."
+  else
+    echo "❌ 실패 (HTTP ${HTTP})"
+  fi
+  echo ""
+  echo "대시보드로 연결 (가장 쉬움): https://vercel.com/new → imjhua/yoga-sequence-notes"
   exit 1
 fi
 

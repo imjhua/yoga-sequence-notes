@@ -5,7 +5,13 @@
 1. **GitHub App 설치**: https://github.com/apps/vercel  
    → imjhua 계정으로 로그인 → `yoga-sequence-notes` repo 접근 허용
 
-2. **Vercel 토큰** (CLI/API용): https://vercel.com/account/tokens
+2. **Vercel 토큰** (CLI/API용): https://vercel.com/account/tokens  
+   ⚠️ **GitHub 토큰(`ghp_...`)이 아닙니다.** Vercel 사이트에서 별도 생성.
+
+| 용도 | 토큰 | 발급처 |
+|------|------|--------|
+| git push | `ghp_...` | github.com/settings/tokens |
+| Vercel 배포 | Vercel token | vercel.com/account/tokens |
 
 ## 방법 A — 대시보드 (권장)
 
