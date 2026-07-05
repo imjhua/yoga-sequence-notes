@@ -27,6 +27,17 @@ function findImageRefs(content) {
   return [...content.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g)].map((m) => m[1]);
 }
 
+function findMindmapRef(content) {
+  const comp = content.match(/<Mindmap\s+name="(seq\d+)"/);
+  if (comp) return comp[1];
+  const img = findImageRefs(content).find((p) => p.includes('mindmap'));
+  if (img) {
+    const m = img.match(/(seq\d+)-mindmap/);
+    if (m) return m[1];
+  }
+  return null;
+}
+
 function validateFile(filePath) {
   const rel = path.relative(root, filePath);
   const content = fs.readFileSync(filePath, 'utf-8');
@@ -36,10 +47,16 @@ function validateFile(filePath) {
   if (!fm.title) errors.push('Missing frontmatter: title');
   if (!fm.peak_pose) errors.push('Missing frontmatter: peak_pose');
 
-  const images = findImageRefs(content);
-  if (images.length === 0) errors.push('No embedded image found (![...](/sequences/assets/...))');
+  const mindmapKey = findMindmapRef(content);
+  if (!mindmapKey) errors.push('No mindmap found (<Mindmap name="seqN" /> or ![...](/mindmaps/...))');
+  else {
+    const resolved = path.join(root, 'public', 'mindmaps', `${mindmapKey}-mindmap.svg`);
+    if (!fs.existsSync(resolved)) {
+      errors.push(`Mindmap not found: public/mindmaps/${mindmapKey}-mindmap.svg`);
+    }
+  }
 
-  for (const img of images) {
+  for (const img of findImageRefs(content).filter((p) => !p.includes('mindmap'))) {
     let resolved;
     if (img.startsWith('/')) {
       resolved = path.join(root, 'public', img.slice(1));

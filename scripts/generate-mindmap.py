@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Generate vertical-flow mindmap SVG. Usage: python3 scripts/generate-mindmap.py seq1"""
+"""Generate vertical-flow mindmap SVG. Usage: python3 scripts/generate-mindmap.py seq1
+
+SVG uses CSS variables (--mm-*) for light/dark mode when inlined via Mindmap.vue.
+"""
 
 import sys
 from pathlib import Path
@@ -8,14 +11,14 @@ PRESETS = {
     "seq1": {
         "root": ("사마코나사나", "목표자세 · 힐링"),
         "steps": [
-            ("수카사나", "어깨 · 가슴 워밍업"),
+            ("수카사나", "워밍업"),
             ("받다코나사나", "고관절 · 날개짓"),
-            ("단다사나 ~ 파스치모", "A/B 사이드 · 햄스트링"),
-            ("블럭 시팅", "전굴 · 트위스트"),
-            ("테이블", "척추 · 어깨 스트레칭"),
-            ("로우런지", "앞허벅지 · 골반"),
+            ("A사이드", "단다 ~ 파스치모"),
+            ("테이블", "30분"),
+            ("로우런지", "35분"),
+            ("블럭 시팅", "40분"),
         ],
-        "peak": ("사마코나사나", "다리 옆으로 벌려…"),
+        "peak": ("사마코나사나", "45분 · 최종"),
     },
     "seq0": {
         "root": ("우르드바 다누라사나", "목표자세 · 등 · 고관절"),
@@ -29,27 +32,8 @@ PRESETS = {
     },
 }
 
-# 어스 톤 — yoga-sequence-mindmapper 앱과 통일
-PALETTE = {
-    "bg": "#F5F2ED",
-    "root_fill": "#5A5A40",
-    "root_stroke": "#4A4A30",
-    "root_title": "#FFFFFF",
-    "root_sub": "#E8E6DC",
-    "step_fill": "#FFFCF9",
-    "step_stroke": "#C8C4B8",
-    "step_title": "#1A1A1A",
-    "step_sub": "#5A5A40",
-    "peak_fill": "#EBE8E2",
-    "peak_stroke": "#5A5A40",
-    "peak_title": "#1A1A1A",
-    "peak_sub": "#4A4A30",
-    "line": "#B8B4A8",
-}
-
 
 def build_svg(root, steps, peak):
-    c = PALETTE
     W, box_w = 380, 320
     x = (W - box_w) // 2
     h_root, h_step, line_h, gap_top = 64, 58, 20, 24
@@ -57,28 +41,28 @@ def build_svg(root, steps, peak):
     cx = W // 2
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {total_h}" font-family="system-ui, sans-serif">',
-        f'<rect width="{W}" height="{total_h}" fill="{c["bg"]}"/>',
-        f'<rect x="{x}" y="{gap_top}" width="{box_w}" height="{h_root}" rx="12" fill="{c["root_fill"]}" stroke="{c["root_stroke"]}" stroke-width="1.5"/>',
-        f'<text x="{cx}" y="{gap_top+26}" text-anchor="middle" font-size="16" font-weight="700" fill="{c["root_title"]}">{root[0]}</text>',
-        f'<text x="{cx}" y="{gap_top+48}" text-anchor="middle" font-size="12" fill="{c["root_sub"]}">{root[1]}</text>',
+        f'<svg xmlns="http://www.w3.org/2000/svg" class="sequence-mindmap" viewBox="0 0 {W} {total_h}" font-family="system-ui, sans-serif">',
+        f'<rect width="{W}" height="{total_h}" fill="var(--mm-bg)"/>',
+        f'<rect x="{x}" y="{gap_top}" width="{box_w}" height="{h_root}" rx="12" fill="var(--mm-root-fill)" stroke="var(--mm-root-stroke)" stroke-width="1.5"/>',
+        f'<text x="{cx}" y="{gap_top+26}" text-anchor="middle" font-size="16" font-weight="700" fill="var(--mm-root-title)">{root[0]}</text>',
+        f'<text x="{cx}" y="{gap_top+48}" text-anchor="middle" font-size="12" fill="var(--mm-root-sub)">{root[1]}</text>',
     ]
     cy = gap_top + h_root
     for title, sub in steps:
         cy += line_h
         lines += [
-            f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="{c["line"]}" stroke-width="1.5"/>',
-            f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="{c["step_fill"]}" stroke="{c["step_stroke"]}" stroke-width="1"/>',
-            f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="600" fill="{c["step_title"]}">{title}</text>',
-            f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="{c["step_sub"]}">{sub}</text>',
+            f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="var(--mm-line)" stroke-width="1.5"/>',
+            f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>',
+            f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">{title}</text>',
+            f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">{sub}</text>',
         ]
         cy += h_step
     cy += line_h
     lines += [
-        f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="{c["line"]}" stroke-width="1.5"/>',
-        f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="{c["peak_fill"]}" stroke="{c["peak_stroke"]}" stroke-width="2"/>',
-        f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="700" fill="{c["peak_title"]}">{peak[0]}</text>',
-        f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="{c["peak_sub"]}">{peak[1]}</text>',
+        f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="var(--mm-line)" stroke-width="1.5"/>',
+        f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="var(--mm-peak-fill)" stroke="var(--mm-peak-stroke)" stroke-width="2"/>',
+        f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="700" fill="var(--mm-peak-title)">{peak[0]}</text>',
+        f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="var(--mm-peak-sub)">{peak[1]}</text>',
         '</svg>',
     ]
     return '\n'.join(lines)

@@ -41,4 +41,4 @@ updated: 2026-07-04
 
 ## 마인드맵
 
-![시퀀스 마인드맵](/mindmaps/seq0-mindmap.svg)
+<Mindmap name="seq0" />

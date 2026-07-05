@@ -37,8 +37,11 @@ public/mindmaps/seq{N}-mindmap.svg
 ```markdown
 ## 마인드맵
 
-![시퀀스 마인드맵](/mindmaps/seq1-mindmap.svg)
+<Mindmap name="seq1" />
 ```
+
+SVG는 `var(--mm-*)` CSS 변수 사용 → VitePress 다크모드 토글 시 자동 전환.  
+`<img>` 태그로 embed하면 다크모드 적용 불가.
 
 ## 생성 방법
 

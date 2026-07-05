@@ -68,47 +68,85 @@
   font-weight: 600;
 }
 
-/* 표: 가로 스크롤 + 터치 스크롤 */
+/* 표 */
 .vp-doc table {
-  display: block;
+  display: table;
+  table-layout: fixed;
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
   font-size: var(--seq-table-font);
   margin: 1rem 0;
   border-bottom: 1px solid var(--vp-c-divider);
   box-sizing: border-box;
 }
 
-.vp-doc thead th {
-  white-space: nowrap;
-  font-size: 0.8125rem;
+.vp-doc th,
+.vp-doc td {
+  overflow-wrap: break-word;
+  word-break: keep-all;
 }
 
-/* 시퀀스 표: 포즈 | L1 cue | L2 cue */
+.vp-doc thead th {
+  font-size: 0.8125rem;
+  vertical-align: bottom;
+}
+
+/* 3열 — 시퀀스 목록 (수업 | 포커스 | 날짜) */
+.vp-doc table:not(:has(th:nth-child(4))) th:nth-child(1),
+.vp-doc table:not(:has(th:nth-child(4))) td:nth-child(1) {
+  width: 40%;
+}
+
+.vp-doc table:not(:has(th:nth-child(4))) th:nth-child(2),
+.vp-doc table:not(:has(th:nth-child(4))) td:nth-child(2) {
+  width: 38%;
+}
+
+.vp-doc table:not(:has(th:nth-child(4))) th:nth-child(3),
+.vp-doc table:not(:has(th:nth-child(4))) td:nth-child(3) {
+  width: 22%;
+  white-space: nowrap;
+}
+
+/* 4열 — 시퀀스 본문 (포즈 | # | cue | sub) */
+.vp-doc table:has(th:nth-child(4)) th:nth-child(1),
+.vp-doc table:has(th:nth-child(4)) td:nth-child(1) {
+  width: 20%;
+}
+
+.vp-doc table:has(th:nth-child(4)) th:nth-child(2),
+.vp-doc table:has(th:nth-child(4)) td:nth-child(2) {
+  width: 8%;
+  text-align: center;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.vp-doc table:has(th:nth-child(4)) thead th:nth-child(2) {
+  text-align: center;
+}
+
+.vp-doc table:has(th:nth-child(4)) th:nth-child(3),
+.vp-doc table:has(th:nth-child(4)) td:nth-child(3) {
+  width: 44%;
+}
+
+.vp-doc table:has(th:nth-child(4)) th:nth-child(4),
+.vp-doc table:has(th:nth-child(4)) td:nth-child(4) {
+  width: 28%;
+  color: var(--vp-c-text-2);
+  font-size: 0.9375em;
+}
+
 .vp-doc tbody td {
   vertical-align: top;
   padding: 0.45rem 0.5rem;
 }
 
-.vp-doc tbody td:first-child {
-  min-width: 5.5rem;
-  max-width: 7rem;
-  white-space: nowrap;
-}
-
 .vp-doc tbody td:first-child strong {
   font-weight: 700;
-}
-
-.vp-doc tbody td:nth-child(2) {
-  min-width: 6rem;
-}
-
-.vp-doc tbody td:nth-child(3) {
-  min-width: 5rem;
-  color: var(--vp-c-text-2);
-  font-size: 0.9375em;
 }
 
 /* 표 스크롤 힌트 (모바일) */
@@ -116,6 +154,67 @@
   .vp-doc table {
     border-left: 3px solid var(--vp-c-brand-1);
   }
+
+  .vp-doc th,
+  .vp-doc td {
+    padding: 0.375rem 0.4rem;
+    line-height: 1.45;
+  }
+
+  .vp-doc table:not(:has(th:nth-child(4))) td:nth-child(1) a {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ── 마인드맵 (라이트 / 다크) ── */
+.mindmap-wrap {
+  --mm-bg: #f5f2ed;
+  --mm-root-fill: #5a5a40;
+  --mm-root-stroke: #4a4a30;
+  --mm-root-title: #ffffff;
+  --mm-root-sub: #e8e6dc;
+  --mm-step-fill: #fffcf9;
+  --mm-step-stroke: #c8c4b8;
+  --mm-step-title: #1a1a1a;
+  --mm-step-sub: #5a5a40;
+  --mm-peak-fill: #ebe8e2;
+  --mm-peak-stroke: #5a5a40;
+  --mm-peak-title: #1a1a1a;
+  --mm-peak-sub: #4a4a30;
+  --mm-line: #b8b4a8;
+
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0.75rem auto 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+html.dark .mindmap-wrap {
+  --mm-bg: #1c1c1a;
+  --mm-root-fill: #6b6b52;
+  --mm-root-stroke: #8a8a72;
+  --mm-root-title: #f5f2ed;
+  --mm-root-sub: #c8c4b8;
+  --mm-step-fill: #2a2a26;
+  --mm-step-stroke: #4a4a44;
+  --mm-step-title: #e8e6dc;
+  --mm-step-sub: #a8a898;
+  --mm-peak-fill: #353530;
+  --mm-peak-stroke: #8a8a72;
+  --mm-peak-title: #f5f2ed;
+  --mm-peak-sub: #c8c4b8;
+  --mm-line: #5a5a50;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.mindmap-wrap .sequence-mindmap {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* 마인드맵: 화면 너비에 맞추고, 필요 시 가로 스크롤 */
@@ -138,6 +237,12 @@
 }
 
 @media (max-width: 768px) {
+  .mindmap-wrap {
+    max-width: 100%;
+    margin: 0.5rem auto 1rem;
+    border-radius: 8px;
+  }
+
   .vp-doc img[alt*="마인드맵"],
   .vp-doc img[src*="mindmap"] {
     max-width: 100%;
@@ -179,8 +284,9 @@
 
   .vp-doc table {
     display: table;
+    table-layout: fixed;
     overflow-x: visible;
-    border-bottom: none;
+    border-bottom: 1px solid var(--vp-c-divider);
   }
 }
 
@@ -255,7 +361,7 @@
   }
 
   .vp-doc tbody td {
-    padding: 0.375rem 0.5rem;
+    padding: 0.375rem 0.4rem;
   }
 
   .vp-doc blockquote {
