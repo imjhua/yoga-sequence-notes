@@ -1,9 +1,9 @@
 ---
-name: yoga-sequence
+name: yoga-sequence-notes
 description: Organize yoga class sequences as markdown notes with mind-map images and auto-start local VitePress preview. Commit and deploy to imjhua/yoga-sequence-notes only when the user requests. Use when the user mentions 요가 시퀀스, yoga sequence, mind map, peak pose, 빌드업, 수업 플랜, or pastes sequence content.
 ---
 
-# Yoga Sequence
+# Yoga Sequence Notes
 
 요가 수업 시퀀스를 **MD 노트 + 마인드맵 이미지**로 정리한다.  
 입력·수정 시 **파일 생성과 로컬 미리보기는 자동**, **커밋·배포는 사용자 요청 시에만**.
@@ -14,9 +14,9 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 
 | 위치 | 용도 |
 |------|------|
-| **repo** `skills/yoga-sequence/` | Git 버전 관리 — **이 경로가 기준** |
-| `~/.claude/skills/yoga-sequence/` | Claude Code — repo와 동기화해서 사용 |
-| `.cursor/skills/yoga-sequence/` | Cursor (선택) — repo에서 복사 |
+| **repo** `skills/yoga-sequence-notes/` | Git 버전 관리 — **이 경로가 기준** |
+| `~/.claude/skills/yoga-sequence-notes/` | Claude Code — repo와 동기화해서 사용 |
+| `.cursor/skills/yoga-sequence-notes/` | Cursor (선택) — repo에서 복사 |
 
 스킬 수정 시 **repo에 먼저 커밋** → 로컬 스킬 폴더에 동기화.
 
