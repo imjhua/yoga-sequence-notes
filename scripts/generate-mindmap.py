@@ -31,6 +31,7 @@ PRESETS = {
             ("블럭 시팅", "40분"),
         ],
         "peak": ("우파비스타코나사나", "45분 · 최종"),
+        "finishing": ("피니싱", "사바사나"),
     },
     "seq0": {
         "root": ("우르드바 다누라사나", "목표자세 · 등 · 고관절"),
@@ -45,11 +46,12 @@ PRESETS = {
 }
 
 
-def build_svg(root, steps, peak):
+def build_svg(root, steps, peak, finishing=None):
     W, box_w = 380, 320
     x = (W - box_w) // 2
     h_root, h_step, line_h, gap_top = 64, 58, 20, 24
-    total_h = gap_top + h_root + len(steps) * (line_h + h_step) + line_h + h_step + 24
+    extra = (line_h + h_step) if finishing else 0
+    total_h = gap_top + h_root + len(steps) * (line_h + h_step) + line_h + h_step + extra + 24
     cx = W // 2
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -75,8 +77,17 @@ def build_svg(root, steps, peak):
         f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="var(--mm-peak-fill)" stroke="var(--mm-peak-stroke)" stroke-width="2"/>',
         f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="700" fill="var(--mm-peak-title)">{peak[0]}</text>',
         f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="var(--mm-peak-sub)">{peak[1]}</text>',
-        '</svg>',
     ]
+    cy += h_step
+    if finishing:
+        cy += line_h
+        lines += [
+            f'<line x1="{cx}" y1="{cy-line_h}" x2="{cx}" y2="{cy}" stroke="var(--mm-line)" stroke-width="1.5"/>',
+            f'<rect x="{x}" y="{cy}" width="{box_w}" height="{h_step}" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>',
+            f'<text x="{cx}" y="{cy+24}" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">{finishing[0]}</text>',
+            f'<text x="{cx}" y="{cy+44}" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">{finishing[1]}</text>',
+        ]
+    lines += ['</svg>']
     return '\n'.join(lines)
 
 
@@ -87,7 +98,7 @@ def main():
         sys.exit(1)
     p = PRESETS[key]
     out = Path(__file__).parent.parent / "public" / "mindmaps" / f"{key}-mindmap.svg"
-    out.write_text(build_svg(p["root"], p["steps"], p["peak"]), encoding="utf-8")
+    out.write_text(build_svg(p["root"], p["steps"], p["peak"], p.get("finishing")), encoding="utf-8")
     print(f"Wrote {out}")
 
 
