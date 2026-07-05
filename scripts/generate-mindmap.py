@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate vertical-flow mindmap SVG. Usage: python3 scripts/generate-mindmap.py seq1
+"""Generate vertical-flow mindmap SVG. Usage: python3 scripts/generate-mindmap.py seq2
 
 SVG uses CSS variables (--mm-*) for light/dark mode when inlined via Mindmap.vue.
 """
@@ -8,18 +8,6 @@ import sys
 from pathlib import Path
 
 PRESETS = {
-    "seq1": {
-        "root": ("사마코나사나", "목표자세 · 힐링"),
-        "steps": [
-            ("수카사나", "워밍업"),
-            ("받다코나사나", "고관절 · 날개짓"),
-            ("A사이드", "단다 ~ 파스치모"),
-            ("테이블", "30분"),
-            ("로우런지", "35분"),
-            ("블럭 시팅", "40분"),
-        ],
-        "peak": ("사마코나사나", "45분 · 최종"),
-    },
     "seq2": {
         "root": ("우파비스타코나사나", "목표자세 · 힐링"),
         "steps": [
@@ -92,7 +80,7 @@ def build_svg(root, steps, peak, finishing=None):
 
 
 def main():
-    key = sys.argv[1] if len(sys.argv) > 1 else "seq1"
+    key = sys.argv[1] if len(sys.argv) > 1 else "seq2"
     if key not in PRESETS:
         print(f"Unknown preset: {key}. Available: {', '.join(PRESETS)}")
         sys.exit(1)
