@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
+    "dev": "node scripts/sync-vinyasa.js && vitepress dev",
+    "build": "node scripts/sync-vinyasa.js && vitepress build",
     "preview": "vitepress preview",
-    "validate": "node scripts/validate-sequence.js"
+    "validate": "node scripts/validate-sequence.js",
+    "validate:vinyasa": "node scripts/validate-vinyasa.js",
+    "seed:vinyasa": "node scripts/build-vinyasa-json.js"
   },
   "devDependencies": {
     "vitepress": "^1.6.3"

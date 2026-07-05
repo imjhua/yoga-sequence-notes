@@ -1,6 +1,6 @@
 ---
 name: yoga-sequence-notes
-description: Organize yoga class sequences as markdown notes with mind-map images and auto-start local VitePress preview. Commit and deploy to imjhua/yoga-sequence-notes only when the user requests. Use when the user mentions 요가 시퀀스, yoga sequence, mind map, peak pose, 빌드업, 수업 플랜, or pastes sequence content.
+description: Organize yoga class sequences as markdown notes with mind-map images and auto-start local VitePress preview. For vinyasa lyric classes, agent receives English lyrics in chat, translates to Korean, seeds JSON, and opens the edit UI. Commit and deploy to imjhua/yoga-sequence-notes only when the user requests. Use when the user mentions 요가 시퀀스, yoga sequence, mind map, peak pose, 빌드업, 수업 플랜, 빈야사, vinyasa, 가사, or pastes song lyrics.
 ---
 
 # Yoga Sequence Notes
@@ -40,13 +40,24 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 
 사용자가 **요가 시퀀스를 입력·붙여넣기·수정**하면 (트리거 키워드 없어도):
 
-1. `prompt.txt` 저장 (원문)
-2. `sequences/seq{N}-*.md` 작성 또는 수정
-3. `python3 scripts/generate-mindmap.py seq{N}` (필요 시 preset 추가)
-4. 신규 시퀀스면 `sequences/index.md` + `.vitepress/config.ts` 업데이트
-5. `node scripts/validate-sequence.js` 실행
-6. **로컬 dev 서버 기동** — 아래 [로컬 서버](#로컬-서버-자동-기동) 참고
-7. 사용자에게 **미리보기 URL** 안내
+**`theme: 빈야사`** (가사 플로우 — [vinyasa-lyric-template.md](references/vinyasa-lyric-template.md))
+
+1. 사용자가 **채팅에 영어 가사** 제공 (줄바꿈 = 구절) — **Studio 입력 UI 사용 안 함**
+2. `sequences/prompts/seq{N}-{slug}.prompt.txt` 저장 (원문만)
+3. 에이전트가 구절마다 **한국어 번역** (수업 cue 톤, 기계번역 API 사용 금지)
+4. `build-vinyasa-json.js {id} … --active` → `{id}.json` + manifest
+5. sync-vinyasa · dev · `/sequences/vinyasa/` 안내
+
+**inhale/exhale · 강조 · 메모** — Studio에서만.  
+**저장** → `{id}.json` + manifest (sidebar **빈야사 1개** 유지).
+
+**그 외 테마 (힐링 등)**
+1. `sequences/seq{N}-*.md` 작성 또는 수정
+2. `python3 scripts/generate-mindmap.py seq{N}` (필요 시 preset 추가)
+3. 신규 시퀀스면 `sequences/index.md` + `.vitepress/config.ts` 업데이트
+4. `node scripts/validate-sequence.js` 실행
+5. **로컬 dev 서버 기동** — 아래 [로컬 서버](#로컬-서버-자동-기동) 참고
+6. 사용자에게 **미리보기 URL** 안내
 
 **수정 후에도 동일** — MD/마인드맵/sidebar 갱신 → validate → dev 서버 확인 → URL 안내.
 
@@ -71,6 +82,8 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 | index | `\| 수업 \| 포커스 \| 날짜 \|` — **최신순** |
 
 본문 순서: **개요 → 수업 메모 → 시퀀스 본문 → 마인드맵 → 초기 프롬프트**
+
+**빈야사 (`theme: 빈야사`)**: [vinyasa-lyric-template.md](references/vinyasa-lyric-template.md) — manifest + `<LyricFlowStudio />`
 
 ---
 
