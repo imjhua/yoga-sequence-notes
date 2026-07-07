@@ -15,7 +15,9 @@ function syncDesktop() {
   isDesktop.value = mq?.matches ?? false
 }
 
-function onToggle() {
+function onToggle(e: MouseEvent) {
+  e.preventDefault()
+  e.stopPropagation()
   hidden.value = toggleSidebarHidden()
 }
 
@@ -38,7 +40,7 @@ onUnmounted(() => {
     class="vp-sidebar-toggle"
     :aria-label="hidden ? '시퀀스 목록 보기' : '시퀀스 목록 숨기'"
     :title="hidden ? '시퀀스 목록 보기' : '시퀀스 목록 숨기'"
-    @click.stop="onToggle"
+    @click="onToggle"
   >
     <span class="vp-sidebar-toggle-icon" aria-hidden="true">{{ hidden ? '☰' : '◀' }}</span>
     <span class="vp-sidebar-toggle-label">{{ hidden ? '목록' : '숨기기' }}</span>
