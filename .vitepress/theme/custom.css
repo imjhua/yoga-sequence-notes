@@ -1136,6 +1136,16 @@ html.sidebar-hidden .VPDoc {
   padding-top: 0.15rem;
 }
 
+.vinyasa-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vinyasa-links .vinyasa-edit-link {
+  padding-top: 0;
+}
+
 .vinyasa-edit-link {
   font-size: 0.8125rem;
   font-weight: 600;
