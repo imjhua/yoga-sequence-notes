@@ -397,6 +397,14 @@ html.sidebar-hidden .VPSidebar {
   display: none !important;
 }
 
+html.sidebar-hidden .VPContent {
+  padding-left: 0 !important;
+}
+
+html.sidebar-hidden .VPDoc {
+  padding-left: 0 !important;
+}
+
 /* 빈야사 스튜디오 — 사이드바 CTA (저장된 시퀀스 목록과 구분) */
 .VPSidebarItem.level-1.is-link:has(.link[href$="/sequences/vinyasa/"]),
 .VPSidebarItem.level-1.is-link:has(.link[href$="/sequences/vinyasa/index.html"]),
