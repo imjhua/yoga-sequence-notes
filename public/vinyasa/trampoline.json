@@ -1,0 +1,1964 @@
+{
+  "meta": {
+    "theme": "빈야사",
+    "song": "Trampoline",
+    "artist": "SHAED",
+    "youtubeUrl": "https://www.youtube.com/watch?v=jZ8yl0uCupQ",
+    "seededAt": "2026-07-06T23:36:01.798Z",
+    "beatMs": 946,
+    "timeSignature": "4/4",
+    "bpm": 126.82,
+    "bpmSource": "deezer",
+    "bpmAnalyzedAt": "2026-07-06T10:52:17.701Z",
+    "savedAt": "2026-07-07T00:36:48.460Z"
+  },
+  "lines": [
+    {
+      "id": 1,
+      "raw": "I've been havin'",
+      "translation": "",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "I've",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "been",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "havin'",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "raw": "dreams Jumpin' on a",
+      "translation": "",
+      "pose": "욷카타",
+      "tokens": [
+        {
+          "text": "dreams",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Jumpin'",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "a",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "raw": "trampoline Flippin' in the",
+      "translation": "",
+      "pose": "우따나",
+      "tokens": [
+        {
+          "text": "trampoline",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Flippin'",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "raw": "air I never land, just",
+      "translation": "",
+      "pose": "아르다",
+      "tokens": [
+        {
+          "text": "air",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "never",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "land,",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "just",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "raw": "float there As I'm lookin'",
+      "translation": "",
+      "pose": "차투랑가",
+      "tokens": [
+        {
+          "text": "float",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "there",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "As",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "lookin'",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "raw": "up (as I'm lookin' up) Suddenly, the",
+      "translation": "",
+      "pose": "업독",
+      "tokens": [
+        {
+          "text": "up",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "(as",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "lookin'",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "up)",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Suddenly,",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "raw": "sky erupts (sky erupts) Flames alight the",
+      "translation": "",
+      "pose": "다운독",
+      "tokens": [
+        {
+          "text": "sky",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "erupts",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(sky",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "erupts)",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Flames",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "alight",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "raw": "trees Spread to fallin' leaves Now they're",
+      "translation": "",
+      "pose": "플랭크",
+      "tokens": [
+        {
+          "text": "trees",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Spread",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fallin'",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "leaves",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Now",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "they're",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "raw": "right upon me",
+      "translation": "",
+      "pose": "다운독",
+      "tokens": [
+        {
+          "text": "right",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "upon",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "me",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "raw": "Wait, if I'm on fire",
+      "translation": "",
+      "pose": "오른발뒤로",
+      "tokens": [
+        {
+          "text": "Wait,",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "if",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fire",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "raw": "How am I so deep in love?",
+      "translation": "",
+      "pose": "앞으로",
+      "tokens": [
+        {
+          "text": "How",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "am",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "deep",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "love?",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "raw": "When I dream of dying",
+      "translation": "",
+      "pose": "전사1",
+      "tokens": [
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dream",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dying",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "raw": "I never feel so loved I've been havin'",
+      "translation": "",
+      "pose": "전사2",
+      "tokens": [
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "never",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feel",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I've",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "been",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "havin'",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "raw": "dreams Splashin' in a",
+      "translation": "",
+      "pose": "역전사",
+      "tokens": [
+        {
+          "text": "dreams",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Splashin'",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "a",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "raw": "summer stream Trip and I",
+      "translation": "",
+      "pose": "전사2",
+      "tokens": [
+        {
+          "text": "summer",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "stream",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Trip",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "and",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "raw": "fall in I wanted it to",
+      "translation": "",
+      "pose": "파르스보타나",
+      "tokens": [
+        {
+          "text": "fall",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "wanted",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "it",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "raw": "happen My body turns to",
+      "translation": "",
+      "pose": "이마정강이",
+      "tokens": [
+        {
+          "text": "happen",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "My",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "body",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "turns",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "raw": "ice (my body turns to ice) Crushing weight ofd",
+      "translation": "",
+      "pose": "뒤에발떼고",
+      "tokens": [
+        {
+          "text": "ice",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "(my",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "body",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "turns",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "ice)",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Crushing",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "weight",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "ofd",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "raw": "paradise (paradise) Solid block of",
+      "translation": "",
+      "pose": "고개 정면 유지",
+      "tokens": [
+        {
+          "text": "paradise",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "(paradise)",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Solid",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "block",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "raw": "gold Lying in the cold I feel",
+      "translation": "",
+      "pose": "아르다찬드라",
+      "tokens": [
+        {
+          "text": "gold",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Lying",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "cold",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feel",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "raw": "right at homed",
+      "translation": "",
+      "pose": "두손하늘위",
+      "tokens": [
+        {
+          "text": "right",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "at",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "homed",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "raw": "Wait, if I'm on fire",
+      "translation": "",
+      "pose": "아르다우따나",
+      "tokens": [
+        {
+          "text": "Wait,",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "if",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fire",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "raw": "How am I so deep in love? (In love)",
+      "translation": "",
+      "pose": "차투랑가",
+      "tokens": [
+        {
+          "text": "How",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "am",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "deep",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "love?",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(In",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "love)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "raw": "When I dream of dying (dying)",
+      "translation": "",
+      "pose": "업독",
+      "tokens": [
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dream",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dying",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(dying)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "raw": "I never feel so loved (so loved)",
+      "translation": "",
+      "pose": "다운독",
+      "tokens": [
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "never",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feel",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "raw": "Wait, if I'm on fire (so loved)",
+      "translation": "",
+      "pose": "왼발뒤로",
+      "tokens": [
+        {
+          "text": "Wait,",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "if",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fire",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "raw": "How am I so deep in love? (So loved)",
+      "translation": "",
+      "pose": "앞으로",
+      "tokens": [
+        {
+          "text": "How",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "am",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "deep",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "love?",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "raw": "When I dream of dying (so loved)",
+      "translation": "",
+      "pose": "전사1",
+      "tokens": [
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dream",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dying",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "raw": "I never feel so loved so loved So loved",
+      "translation": "",
+      "pose": "전사2",
+      "tokens": [
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "never",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feel",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "raw": "La,",
+      "translation": "",
+      "pose": "역전사",
+      "tokens": [
+        {
+          "text": "La,",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "raw": "la-la,",
+      "translation": "",
+      "pose": "전사2",
+      "tokens": [
+        {
+          "text": "la-la,",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "raw": "la-la",
+      "translation": "",
+      "pose": "파르보타나 ",
+      "tokens": [
+        {
+          "text": "la-la",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "raw": "la-la",
+      "translation": "",
+      "pose": "이마 정강이",
+      "tokens": [
+        {
+          "text": "la-la",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "raw": "la-la",
+      "translation": "",
+      "pose": "뒤에발떼고",
+      "tokens": [
+        {
+          "text": "la-la",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "raw": "la-la",
+      "translation": "",
+      "pose": "고개 정면 유지",
+      "tokens": [
+        {
+          "text": "la-la",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "raw": "la-la",
+      "translation": "",
+      "pose": "아르다찬드라",
+      "tokens": [
+        {
+          "text": "la-la",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "raw": "la-la",
+      "translation": "",
+      "pose": "두손하늘위",
+      "tokens": [
+        {
+          "text": "la-la",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "raw": "Wait, if I'm on fire",
+      "translation": "",
+      "pose": "아르다우따나",
+      "tokens": [
+        {
+          "text": "Wait,",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "if",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fire",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "raw": "How am I so deep in love?",
+      "translation": "",
+      "pose": "차투랑가",
+      "tokens": [
+        {
+          "text": "How",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "am",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "deep",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "love?",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "raw": "When I dream of dying (so loved)",
+      "translation": "",
+      "pose": "업독",
+      "tokens": [
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dream",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dying",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "raw": "I never feel so loved so loved So loved",
+      "translation": "",
+      "pose": "다운독",
+      "tokens": [
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "never",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feel",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "raw": "Wait, if I'm on fire",
+      "translation": "",
+      "pose": "아르다",
+      "tokens": [
+        {
+          "text": "Wait,",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "if",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fire",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "raw": "How am I so deep in love?",
+      "translation": "",
+      "pose": "우타나",
+      "tokens": [
+        {
+          "text": "How",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "am",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "deep",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "love?",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "raw": "When I dream of dying (so loved)",
+      "translation": "",
+      "pose": "욷카타",
+      "tokens": [
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dream",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "dying",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "(so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved)",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "raw": "I never feel so loved so loved So loved",
+      "translation": "",
+      "pose": "타다사나",
+      "tokens": [
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "never",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feel",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "so",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "loved",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    }
+  ],
+  "measures": [
+    {
+      "lineId": 1,
+      "anchors": []
+    },
+    {
+      "lineId": 2,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 3,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 4,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 5,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 6,
+      "anchors": [
+        {
+          "beatIndex": 3,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 7,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 8,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 9,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 10,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 11,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 12,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 13,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 14,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 15,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 16,
+      "anchors": [
+        {
+          "beatIndex": 2,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 17,
+      "anchors": [
+        {
+          "beatIndex": 3,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 18,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 19,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 20,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 21,
+      "anchors": [
+        {
+          "beatIndex": 2,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 22,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 23,
+      "anchors": [
+        {
+          "beatIndex": 2,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 24,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 25,
+      "anchors": [
+        {
+          "beatIndex": 2,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 26,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 27,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 28,
+      "anchors": [
+        {
+          "beatIndex": 2,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 29,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 30,
+      "anchors": [
+        {
+          "beatIndex": 2,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 31,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 32,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 33,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 34,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 35,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 36,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 37,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 38,
+      "anchors": [
+        {
+          "beatIndex": 1,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 39,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 40,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 41,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 42,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 43,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 44,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    },
+    {
+      "lineId": 45,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        }
+      ]
+    }
+  ]
+}

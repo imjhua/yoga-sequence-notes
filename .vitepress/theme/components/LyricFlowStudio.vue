@@ -3,21 +3,30 @@ import { onMounted, ref, watch, computed } from 'vue'
 import { useData } from 'vitepress'
 import LyricLineEditor from './LyricLineEditor.vue'
 import LyricFlowVerse from './LyricFlowVerse.vue'
+import LyricFlowYoutube from './LyricFlowYoutube.vue'
 import {
   type LyricFlowData,
+  type TimeSignature,
+  anchorGlobalOffset,
+  applyPlaybackLocal,
   clearDraft,
   loadDraft,
   normalizeData,
-  renderExportLine,
+  persistPlaybackFromMeta,
+  insertLineAt,
+  removeLineAt,
+  reflowLinesByBreath,
   saveDraft,
   saveClearedDraft,
   vinyasaJsonUrl,
 } from '../lyricFlow'
+import { DEFAULT_BEAT_MS, useBeatCounter } from '../useBeatCounter'
+import { provideLyricBeatContext } from '../useLyricBeatContext'
+import { useYoutubeBpmSync } from '../useYoutubeBpmSync'
 import {
   type VinyasaManifest,
   fetchManifest,
   saveFlowToServer,
-  downloadTextFile,
 } from '../saveFlow'
 
 const { site } = useData()
@@ -27,15 +36,12 @@ const activeId = ref('')
 const data = ref<LyricFlowData>({ meta: { theme: '빈야사' }, lines: [] })
 const savedHint = ref(false)
 const showPreview = ref(false)
-const copied = ref(false)
 const loading = ref(true)
 const saving = ref(false)
 const saveFlowMessage = ref('')
 
 let saveTimer: ReturnType<typeof setTimeout> | undefined
 let skipPersist = false
-
-const hasLocalDraft = computed(() => data.value.lines.length > 0)
 
 const activeEntry = computed(() =>
   manifest.value.sequences.find((s) => s.id === activeId.value),
@@ -46,11 +52,11 @@ const isLocallyCleared = computed(() =>
 )
 
 const pageTitle = computed(() => {
-  if (!activeId.value || isLocallyCleared.value) return '빈야사'
+  if (!activeId.value || isLocallyCleared.value) return '빈야사 시퀀스 생성'
   const song = data.value.meta?.song?.trim()
   if (song) return song
   if (data.value.lines.length && activeEntry.value?.title) return activeEntry.value.title
-  return '빈야사'
+  return '빈야사 시퀀스 생성'
 })
 
 const pageArtist = computed(() => {
@@ -62,14 +68,89 @@ const showIntro = computed(() =>
   !loading.value && !manifest.value.sequences.length,
 )
 
+function setYoutubeUrl(url: string) {
+  const trimmed = url.trim()
+  data.value.meta = {
+    ...data.value.meta,
+    youtubeUrl: trimmed || undefined,
+    ...(trimmed
+      ? {}
+      : {
+          bpm: undefined,
+          beatMs: undefined,
+          bpmSource: undefined,
+          bpmAnalyzedAt: undefined,
+        }),
+  }
+  if (activeId.value) persistPlaybackFromMeta(activeId.value, data.value.meta)
+}
+
+function setTimeSignature(ts: TimeSignature | '') {
+  data.value.meta = {
+    ...data.value.meta,
+    timeSignature: ts || undefined,
+  }
+}
+
+const timeSignatureRef = computed({
+  get: () => data.value.meta.timeSignature ?? '',
+  set: (ts: TimeSignature | '') => setTimeSignature(ts),
+})
+
+const beatMsRef = computed({
+  get: () => data.value.meta.beatMs ?? DEFAULT_BEAT_MS,
+  set: (ms: number) => {
+    data.value.meta = { ...data.value.meta, beatMs: ms }
+  },
+})
+
+const beatCounter = useBeatCounter(timeSignatureRef, beatMsRef)
+
+provideLyricBeatContext({
+  activeBeatIndex: beatCounter.activeBeatIndex,
+  beatRunning: beatCounter.beatRunning,
+  beatTotal: beatCounter.beatTotal,
+  beatSequence: beatCounter.beatSequence,
+  toggleBeatRun: beatCounter.toggleBeatRun,
+  resetBeatTimer: beatCounter.resetBeatTimer,
+  pauseBeatTimer: beatCounter.pauseBeatTimer,
+  startBeatTimer: beatCounter.startBeatTimer,
+  beatMs: beatMsRef,
+  timeSignature: timeSignatureRef,
+})
+
 function persist() {
   if (skipPersist || !activeId.value) return
+  persistPlaybackFromMeta(activeId.value, data.value.meta)
   saveDraft(activeId.value, data.value)
   savedHint.value = true
   clearTimeout(saveTimer)
   saveTimer = setTimeout(() => {
     savedHint.value = false
   }, 1500)
+}
+
+function onLineChange() {
+  reflowLinesByBreath(data.value)
+}
+
+function onLineRawChange() {
+}
+
+function insertLineAfter(afterIndex: number, raw = '') {
+  insertLineAt(data.value, afterIndex, raw)
+  if (raw.trim()) reflowLinesByBreath(data.value)
+}
+
+function removeLine(index: number) {
+  removeLineAt(data.value, index)
+  reflowLinesByBreath(data.value)
+}
+
+const { bpmAnalyzing, bpmError } = useYoutubeBpmSync(activeId, data, { onPersist: persist })
+
+function finalizeLoadedData(id: string, next: LyricFlowData): LyricFlowData {
+  return applyPlaybackLocal(id, normalizeData(next))
 }
 
 async function fetchSequenceFile(id: string): Promise<LyricFlowData | null> {
@@ -84,7 +165,7 @@ async function fetchSequenceFile(id: string): Promise<LyricFlowData | null> {
 
 async function loadSequence(
   id: string,
-  { persistDraft = true, deselectIfCleared = false } = {},
+  { persistDraft = true, deselectIfCleared = false, forceFromFile = false } = {},
 ) {
   if (!id) {
     data.value = { meta: { theme: '빈야사' }, lines: [] }
@@ -94,6 +175,16 @@ async function loadSequence(
   loading.value = true
   const draft = loadDraft(id)
   const fileData = await fetchSequenceFile(id)
+  const fileHasLines = (fileData?.lines?.length ?? 0) > 0
+  const fileReady = fileHasLines && (fileData?.meta?.seededAt || fileData?.meta?.savedAt)
+
+  if (forceFromFile && fileReady) {
+    clearDraft(id)
+    data.value = finalizeLoadedData(id, fileData!)
+    if (persistDraft) saveDraft(id, data.value)
+    loading.value = false
+    return
+  }
 
   if (draft?.meta?.draftClearedAt && !draft.lines?.length) {
     const fileStamp = fileData?.meta?.savedAt || fileData?.meta?.seededAt
@@ -110,26 +201,30 @@ async function loadSequence(
     clearDraft(id)
   }
 
-  const fileHasLines = (fileData?.lines?.length ?? 0) > 0
-  const fileReady = fileHasLines && (fileData?.meta?.seededAt || fileData?.meta?.savedAt)
-
   if (fileReady) {
     const fileSeed = fileData!.meta?.seededAt
     const draftSeed = draft?.meta?.seededAt
     if (!draft?.lines?.length || (fileSeed && fileSeed !== draftSeed)) {
-      data.value = fileData!
-      if (persistDraft) saveDraft(id, fileData!)
+      data.value = finalizeLoadedData(id, fileData!)
+      if (persistDraft) saveDraft(id, data.value)
     } else {
-      data.value = draft!
+      data.value = finalizeLoadedData(id, draft!)
     }
   } else if (draft?.lines?.length) {
-    data.value = draft
+    data.value = finalizeLoadedData(id, draft)
   } else {
     clearDraft(id)
-    data.value = fileData ?? { meta: { theme: '빈야사' }, lines: [] }
+    data.value = fileData
+      ? finalizeLoadedData(id, fileData)
+      : { meta: { theme: '빈야사' }, lines: [] }
   }
 
   loading.value = false
+}
+
+function querySequenceId(): string {
+  if (typeof window === 'undefined') return ''
+  return new URLSearchParams(window.location.search).get('id')?.trim() ?? ''
 }
 
 async function init() {
@@ -137,14 +232,19 @@ async function init() {
   manifest.value = await fetchManifest()
 
   const ids = manifest.value.sequences.map((s) => s.id)
-  let id = manifest.value.activeId
+  const queryId = querySequenceId()
+  let id = queryId && ids.includes(queryId) ? queryId : manifest.value.activeId
   if (!id || !ids.includes(id)) {
     id = manifest.value.sequences[0]?.id ?? ''
   }
   activeId.value = id
 
-  if (id) await loadSequence(id, { deselectIfCleared: true })
-  else {
+  if (id) {
+    await loadSequence(id, {
+      deselectIfCleared: !queryId,
+      forceFromFile: !!queryId,
+    })
+  } else {
     data.value = { meta: { theme: '빈야사' }, lines: [] }
     loading.value = false
   }
@@ -157,12 +257,12 @@ async function onSelectSequence(e: Event) {
   if (activeId.value) saveDraft(activeId.value, data.value)
   activeId.value = nextId
   showPreview.value = false
-  await loadSequence(nextId)
+  await loadSequence(nextId, { forceFromFile: true })
 }
 
-async function clearLocalDraft() {
-  if (!activeId.value || !data.value.lines.length) return
-  if (!confirm('브라우저 편집 초안을 삭제할까요?\n\n화면에서 가사·제목이 사라집니다. JSON 파일은 변경되지 않습니다.')) {
+async function startFresh() {
+  if (!activeId.value && !data.value.lines.length) return
+  if (!confirm('새 시퀀스를 추가할까요?\n\n화면이 비워집니다. 에이전트에게 영어 가사를 알려주세요.')) {
     return
   }
 
@@ -170,27 +270,12 @@ async function clearLocalDraft() {
   skipPersist = true
   savedHint.value = false
   showPreview.value = false
-  saveClearedDraft(id)
+  if (id) saveClearedDraft(id)
   activeId.value = ''
   data.value = { meta: { theme: '빈야사' }, lines: [] }
-  saveFlowMessage.value = '로컬 초안 삭제됨'
+  saveFlowMessage.value = '새 시퀀스 · 가사를 알려주세요'
   skipPersist = false
   setTimeout(() => { saveFlowMessage.value = '' }, 3000)
-}
-
-const exportJson = computed(() => JSON.stringify(data.value, null, 2))
-const exportText = computed(() =>
-  data.value.lines.map((l) => renderExportLine(l)).join('\n'),
-)
-
-async function copyJson() {
-  await navigator.clipboard.writeText(exportJson.value)
-  copied.value = true
-  setTimeout(() => { copied.value = false }, 2000)
-}
-
-function downloadJson() {
-  downloadTextFile(`${activeId.value || 'sequence'}.json`, exportJson.value)
 }
 
 async function saveFlow() {
@@ -206,8 +291,7 @@ async function saveFlow() {
     manifest.value = await fetchManifest()
     saveFlowMessage.value = `저장됨 · ${result.title}`
   } catch {
-    downloadJson()
-    saveFlowMessage.value = 'JSON 다운로드됨 (로컬 dev에서만 파일 저장)'
+    saveFlowMessage.value = '저장 실패 (로컬 dev에서만 파일 저장)'
   } finally {
     saving.value = false
     setTimeout(() => { saveFlowMessage.value = '' }, 5000)
@@ -225,12 +309,27 @@ onMounted(init)
 <template>
   <div class="studio-page">
     <header class="studio-page-header">
-      <h1>{{ pageTitle }}</h1>
-      <p v-if="pageArtist" class="studio-page-meta">{{ pageArtist }}</p>
-      <p v-else-if="showIntro" class="studio-page-meta">
-        에이전트에게 <strong>영어 가사</strong>를 알려주면 시퀀스가 추가됩니다.
-        아래에서 <strong>선택 · 편집 · 미리보기 · 저장</strong>을 한 번에 할 수 있습니다.
-      </p>
+      <div class="studio-page-header-text">
+        <h1>{{ pageTitle }}</h1>
+        <p v-if="pageArtist" class="studio-page-meta">{{ pageArtist }}</p>
+        <p v-else-if="showIntro" class="studio-page-meta">
+          에이전트에게 <strong>영어 가사</strong>를 알려주면 시퀀스가 추가됩니다.
+          아래에서 <strong>선택 · 편집 · 미리보기 · 저장</strong>을 한 번에 할 수 있습니다.
+        </p>
+      </div>
+      <LyricFlowYoutube
+        v-if="activeId && !loading && data.meta.youtubeUrl"
+        mode="embed"
+        compact
+        corner
+        :url="data.meta.youtubeUrl"
+        :time-signature="data.meta.timeSignature ?? ''"
+        :beat-ms="data.meta.beatMs ?? DEFAULT_BEAT_MS"
+        :bpm="data.meta.bpm"
+        :bpm-analyzing="bpmAnalyzing"
+        :bpm-error="bpmError"
+        @update:time-signature="setTimeSignature"
+      />
     </header>
 
     <div class="lyric-flow-studio">
@@ -255,7 +354,25 @@ onMounted(init)
       <span v-if="activeEntry?.updatedAt" class="studio-picker-meta">
         {{ activeEntry.updatedAt.slice(0, 10) }}
       </span>
+      <button
+        v-if="manifest.sequences.length && !loading"
+        type="button"
+        class="studio-btn studio-picker-add"
+        @click="startFresh"
+      >
+        새로 추가하기
+      </button>
     </div>
+
+    <LyricFlowYoutube
+      v-if="activeId && !loading"
+      mode="input"
+      :url="data.meta.youtubeUrl"
+      :time-signature="data.meta.timeSignature ?? ''"
+      :beat-ms="data.meta.beatMs ?? DEFAULT_BEAT_MS"
+      @update:url="setYoutubeUrl"
+      @update:time-signature="setTimeSignature"
+    />
 
     <div v-if="loading" class="studio-empty">불러오는 중…</div>
 
@@ -268,29 +385,28 @@ onMounted(init)
       <p v-if="saveFlowMessage" class="studio-status ok studio-empty-msg">{{ saveFlowMessage }}</p>
       <template v-if="!activeId || isLocallyCleared">
         가사가 없습니다.<br>
-        에이전트에게 영어 가사를 알려주세요.
+        직접 추가하거나 에이전트에게 영어 가사를 알려주세요.
       </template>
       <template v-else>
         「{{ activeEntry?.title || activeId }}」에 가사가 없습니다.<br>
-        에이전트에게 영어 가사를 알려주세요.
+        아래에서 직접 추가하거나 에이전트에게 영어 가사를 알려주세요.
       </template>
+      <button
+        v-if="activeId"
+        type="button"
+        class="studio-btn studio-line-insert-start"
+        @click="insertLineAfter(-1, '')"
+      >
+        + 첫 구절 추가
+      </button>
     </div>
 
     <template v-else>
       <section class="studio-section studio-section-compact">
         <div class="studio-bar">
-          <span class="studio-bar-hint">단어 클릭 → 굵게 · 셀렉트 → IN/EX</span>
           <div class="studio-bar-right">
             <span v-if="savedHint" class="studio-status ok">초안</span>
             <span v-if="saveFlowMessage" class="studio-status ok">{{ saveFlowMessage }}</span>
-            <button
-              v-if="hasLocalDraft"
-              type="button"
-              class="studio-btn danger"
-              @click="clearLocalDraft"
-            >
-              로컬 초안 삭제
-            </button>
             <button
               type="button"
               class="studio-btn"
@@ -311,42 +427,40 @@ onMounted(init)
         </div>
 
         <div v-if="showPreview" class="studio-preview">
-          <header v-if="data.meta.song" class="lyric-flow-header">
-            <span class="lyric-flow-song">{{ data.meta.song }}</span>
-            <span v-if="data.meta.artist" class="lyric-flow-artist">{{ data.meta.artist }}</span>
-          </header>
           <LyricFlowVerse
-            v-for="line in data.lines"
+            v-for="(line, li) in data.lines"
             :key="line.id"
             :line="line"
+            :measure="data.measures?.[li]"
+            :global-anchor-offset="anchorGlobalOffset(data.measures ?? [], li)"
           />
         </div>
 
         <div v-else class="studio-lines">
-          <LyricLineEditor
-            v-for="line in data.lines"
-            :key="line.id"
-            :line="line"
-            @change="persist"
-          />
+          <p v-if="data.meta.timeSignature" class="studio-beat-hint">
+            가사를 직접 입력하고, 박자 시작 후 활성 박자에 단어를 클릭하세요. INHALE/EXHALE은 bold 순서로 자동입니다.
+          </p>
+          <template v-for="(line, li) in data.lines" :key="line.id">
+            <LyricLineEditor
+              :line="line"
+              :measure="data.measures![li]"
+              :line-index="li"
+              :all-measures="data.measures!"
+              @raw-change="onLineRawChange"
+              @change="onLineChange"
+              @delete="removeLine(li)"
+            />
+            <button
+              type="button"
+              class="studio-line-insert"
+              :aria-label="`구절 ${li + 1} 뒤에 추가`"
+              @click="insertLineAfter(li)"
+            >
+              +
+            </button>
+          </template>
         </div>
       </section>
-
-      <details class="studio-export">
-        <summary>JSON 내보내기</summary>
-        <div class="studio-export-body">
-          <p class="studio-export-path">
-            <code>sequences/vinyasa/{{ activeId }}.json</code>
-          </p>
-          <div class="studio-export-btns">
-            <button type="button" class="studio-btn" @click="copyJson">
-              {{ copied ? '복사됨 ✓' : 'JSON 복사' }}
-            </button>
-            <button type="button" class="studio-btn" @click="downloadJson">다운로드</button>
-          </div>
-          <pre class="studio-export-pre">{{ exportText }}</pre>
-        </div>
-      </details>
     </template>
     </div>
   </div>

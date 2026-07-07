@@ -5,8 +5,9 @@
  * Usage:
  *   node scripts/build-vinyasa-json.js sign-of-the-times \
  *     --song "Sign of the Times" --artist "Harry Styles" \
- *     --prompt sign-of-the-times.prompt.txt \
- *     --ko "번역1" "번역2"
+ *     --prompt sign-of-the-times.prompt.txt
+ *
+ * Korean: pass --ko lines, or add sequences/prompts/{id}.ko.txt (one line per verse).
  */
 import fs from 'fs'
 import path from 'path'
@@ -25,10 +26,29 @@ function splitRawToTokens(raw) {
     .map((text) => ({ text, breathAfter: null, emphasis: false }))
 }
 
+function readPromptLines(text) {
+  return text
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+}
+
+function splitLyricsTextToRaws(text) {
+  const collapsed = text.replace(/\s+/g, ' ').trim()
+  if (!collapsed) return []
+  const parts = collapsed
+    .split(/(?<=\.)\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+  return parts.length ? parts : [collapsed]
+}
+
 function parseArgs(argv) {
   const id = argv[0]
   if (!id) {
-    console.error('Usage: node scripts/build-vinyasa-json.js <id> [--song ...] [--artist ...] [--prompt file] [--en ...] [--ko ...] [--active]')
+    console.error(
+      'Usage: node scripts/build-vinyasa-json.js <id> [--song ...] [--artist ...] [--prompt file] [--en ...] [--ko ...] [--active]',
+    )
     process.exit(1)
   }
 
@@ -49,7 +69,8 @@ function parseArgs(argv) {
 }
 
 function readEnglishLines(opts) {
-  if (opts.en.length) return opts.en.map((l) => l.trim()).filter(Boolean)
+  if (opts.en.length > 1) return opts.en.map((s) => s.trim()).filter(Boolean)
+  if (opts.en.length === 1) return splitLyricsTextToRaws(opts.en[0])
 
   if (opts.prompt) {
     const promptPath = path.isAbsolute(opts.prompt)
@@ -59,39 +80,67 @@ function readEnglishLines(opts) {
       console.error(`Prompt not found: ${promptPath}`)
       process.exit(1)
     }
-    return fs
-      .readFileSync(promptPath, 'utf-8')
-      .split('\n')
-      .map((l) => l.trim())
-      .filter(Boolean)
+    return readPromptLines(fs.readFileSync(promptPath, 'utf-8'))
   }
 
   console.error('Provide --en lines or --prompt file')
   process.exit(1)
 }
 
+function readKoreanLines(opts, enCount) {
+  if (opts.ko.length) {
+    if (opts.ko.length !== enCount) {
+      console.error(`Line count mismatch: ${enCount} EN vs ${opts.ko.length} KO (--ko)`)
+      process.exit(1)
+    }
+    return opts.ko
+  }
+
+  const koPath = path.join(promptsDir, `${opts.id}.ko.txt`)
+  if (fs.existsSync(koPath)) {
+    const lines = readPromptLines(fs.readFileSync(koPath, 'utf-8'))
+    if (lines.length !== enCount) {
+      console.error(`Line count mismatch: ${enCount} EN vs ${lines.length} KO (${koPath})`)
+      process.exit(1)
+    }
+    return lines
+  }
+
+  return Array(enCount).fill('')
+}
+
+function loadExistingMeta(id) {
+  const jsonPath = path.join(vinyasaDir, `${id}.json`)
+  if (!fs.existsSync(jsonPath)) return {}
+  try {
+    return JSON.parse(fs.readFileSync(jsonPath, 'utf-8')).meta ?? {}
+  } catch {
+    return {}
+  }
+}
+
 const opts = parseArgs(process.argv.slice(2))
 const enLines = readEnglishLines(opts)
-
-if (opts.ko.length !== enLines.length) {
-  console.error(`Line count mismatch: ${enLines.length} EN vs ${opts.ko.length} KO`)
-  process.exit(1)
-}
+const koLines = readKoreanLines(opts, enLines.length)
+const existingMeta = loadExistingMeta(opts.id)
 
 const data = {
   meta: {
+    ...existingMeta,
     theme: '빈야사',
-    song: opts.song || undefined,
-    artist: opts.artist || undefined,
+    song: opts.song || existingMeta.song || undefined,
+    artist: opts.artist || existingMeta.artist || undefined,
     seededAt: new Date().toISOString(),
+    savedAt: undefined,
   },
   lines: enLines.map((raw, i) => ({
     id: i + 1,
     raw,
-    translation: opts.ko[i].trim(),
+    translation: koLines[i].trim(),
     pose: '',
     tokens: splitRawToTokens(raw),
   })),
+  measures: [],
 }
 
 fs.mkdirSync(vinyasaDir, { recursive: true })

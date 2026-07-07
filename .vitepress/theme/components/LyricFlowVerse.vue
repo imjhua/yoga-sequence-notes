@@ -1,51 +1,61 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import {
-  type Breath,
-  type LyricLine,
-  lineBreathSummary,
+  anchorAtToken,
+  breathForGlobalIndex,
   lineTokens,
-  tokenBreath,
+  type LyricLine,
+  type LyricMeasure,
 } from '../lyricFlow'
 
-defineProps<{ line: LyricLine }>()
+const props = defineProps<{
+  line: LyricLine
+  measure?: LyricMeasure
+  globalAnchorOffset?: number
+}>()
+
+const tokens = computed(() => lineTokens(props.line))
+const hasAnchor = computed(() => (props.measure?.anchors.length ?? 0) > 0)
+
+function breathForToken(tokenIndex: number): 'inhale' | 'exhale' | null {
+  if (!props.measure) return null
+  const anchor = anchorAtToken(props.measure, tokenIndex)
+  if (!anchor) return null
+  const before = props.measure.anchors.filter((a) => a.beatIndex < anchor.beatIndex).length
+  return breathForGlobalIndex((props.globalAnchorOffset ?? 0) + before)
+}
 </script>
 
 <template>
-  <article class="lyric-verse">
-    <span
-      v-if="lineBreathSummary(line) === 'inhale'"
-      class="breath-badge inhale"
-    >INHALE</span>
-    <span
-      v-else-if="lineBreathSummary(line) === 'exhale'"
-      class="breath-badge exhale"
-    >EXHALE</span>
-    <span
-      v-else-if="lineBreathSummary(line) === 'mixed'"
-      class="breath-badge mixed"
-    >INHALE · EXHALE</span>
-    <span v-else class="breath-badge unset">호흡 미설정</span>
-
-    <p class="verse-en">{{ line.raw }}</p>
-    <p v-if="line.translation" class="verse-ko">{{ line.translation }}</p>
-    <p v-else class="verse-ko verse-ko-empty">한국어 번역</p>
-
-    <p class="verse-cue">
-      <template v-for="(token, ti) in lineTokens(line)" :key="ti">
+  <div class="lyric-verse">
+    <div
+      class="verse-card"
+      :class="hasAnchor ? 'verse-card-action' : 'verse-card-wait'"
+    >
+      <p class="verse-en">
         <span
-          class="cue-word"
-          :class="{ emphasis: token.emphasis }"
+          v-for="(token, ti) in tokens"
+          :key="ti"
+          class="verse-chunk"
         >
-          <strong v-if="token.emphasis">{{ token.text }}</strong><template v-else>{{ token.text }}</template>
+          <span class="verse-word" :class="{ emphasis: token.emphasis }">{{ token.text }}</span>
+          <span
+            v-if="breathForToken(ti)"
+            class="cue-breath"
+            :class="breathForToken(ti)!"
+          >
+            {{ breathForToken(ti) === 'inhale' ? 'INHALE' : 'EXHALE' }}
+          </span>
+          <span
+            v-if="measure && anchorAtToken(measure, ti)?.pose?.trim()"
+            class="verse-pose verse-pose-inline"
+          >
+            {{ anchorAtToken(measure, ti)!.pose }}
+          </span>
         </span>
-        <span
-          v-if="tokenBreath(token)"
-          class="cue-breath"
-          :class="tokenBreath(token)!"
-        >{{ tokenBreath(token) === 'inhale' ? 'INHALE' : 'EXHALE' }}</span>
-      </template>
-      <span v-if="line.pose" class="verse-pose">{{ line.pose }}</span>
-    </p>
-  </article>
+        <span v-if="line.pose && hasAnchor" class="verse-pose verse-pose-inline">{{ line.pose }}</span>
+      </p>
+      <p v-if="line.translation" class="verse-ko">{{ line.translation }}</p>
+    </div>
+  </div>
 </template>

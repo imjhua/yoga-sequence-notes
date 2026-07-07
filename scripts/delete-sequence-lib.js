@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url'
 import {
   publicDir,
   removeFromManifest,
+  deleteVinyasaPage,
   vinyasaDir,
 } from './vinyasa-manifest-lib.js'
 
@@ -75,6 +76,7 @@ export function deleteVinyasaSequence(id) {
   safeUnlink(path.join(vinyasaDir, `${id}.json`))
   safeUnlink(path.join(publicDir, `${id}.json`))
   safeUnlink(path.join(promptsDir, `${id}.prompt.txt`))
+  deleteVinyasaPage(id)
 
   return {
     type: 'vinyasa',

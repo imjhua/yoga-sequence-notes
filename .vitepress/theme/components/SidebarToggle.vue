@@ -38,7 +38,7 @@ onUnmounted(() => {
     class="vp-sidebar-toggle"
     :aria-label="hidden ? '시퀀스 목록 보기' : '시퀀스 목록 숨기'"
     :title="hidden ? '시퀀스 목록 보기' : '시퀀스 목록 숨기'"
-    @click="onToggle"
+    @click.stop="onToggle"
   >
     <span class="vp-sidebar-toggle-icon" aria-hidden="true">{{ hidden ? '☰' : '◀' }}</span>
     <span class="vp-sidebar-toggle-label">{{ hidden ? '목록' : '숨기기' }}</span>

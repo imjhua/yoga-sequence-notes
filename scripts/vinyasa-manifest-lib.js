@@ -81,3 +81,57 @@ export function syncSequenceJson(id, data) {
   fs.writeFileSync(jsonPath, `${JSON.stringify(data, null, 2)}\n`)
   fs.copyFileSync(jsonPath, path.join(publicDir, `${id}.json`))
 }
+
+const RESERVED_PAGES = new Set(['index', 'manifest'])
+
+/** Saved sequence → VitePress page (sidebar sub-item under 빈야사) */
+export function writeVinyasaPage(id, data) {
+  if (RESERVED_PAGES.has(id)) return
+  const title = sequenceTitle(data, id)
+  const mdPath = path.join(vinyasaDir, `${id}.md`)
+  const content = `---
+title: ${title}
+flow: ${id}
+outline: false
+aside: false
+pageClass: vinyasa-page
+---
+
+<LyricFlowSaved />
+`
+  fs.mkdirSync(vinyasaDir, { recursive: true })
+  fs.writeFileSync(mdPath, content)
+}
+
+export function deleteVinyasaPage(id) {
+  if (RESERVED_PAGES.has(id)) return
+  const mdPath = path.join(vinyasaDir, `${id}.md`)
+  if (fs.existsSync(mdPath)) fs.unlinkSync(mdPath)
+}
+
+/** Create/remove .md pages from JSON (savedAt only) */
+export function syncVinyasaPages() {
+  const manifest = readManifest()
+  const keep = new Set()
+
+  for (const entry of manifest.sequences) {
+    const jsonPath = path.join(vinyasaDir, `${entry.id}.json`)
+    if (!fs.existsSync(jsonPath)) continue
+    let data
+    try {
+      data = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'))
+    } catch {
+      continue
+    }
+    if (data.meta?.savedAt) {
+      writeVinyasaPage(entry.id, data)
+      keep.add(entry.id)
+    }
+  }
+
+  for (const file of fs.readdirSync(vinyasaDir)) {
+    if (!file.endsWith('.md') || file === 'index.md') continue
+    const id = file.slice(0, -3)
+    if (!keep.has(id)) deleteVinyasaPage(id)
+  }
+}

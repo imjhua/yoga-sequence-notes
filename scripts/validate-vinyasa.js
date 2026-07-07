@@ -10,7 +10,6 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.join(__dirname, '..')
 const vinyasaDir = path.join(root, 'sequences', 'vinyasa')
-const BREATH = new Set(['inhale', 'exhale'])
 
 function validateFile(filePath) {
   const rel = path.relative(root, filePath)
@@ -34,15 +33,15 @@ function validateFile(filePath) {
     const label = `line ${line.id ?? '?'}`
     if (!line.raw?.trim()) errors.push(`${label}: missing raw`)
     if (!line.translation?.trim()) errors.push(`${label}: missing translation`)
-    const tokens = line.tokens?.length ? line.tokens : line.raw?.trim().split(/\s+/).map((text) => ({ text }))
-    const hasBreath = tokens?.some((t) => {
-      const b = t.breathAfter ?? t.breath
-      return b === 'inhale' || b === 'exhale'
-    })
-    if (!hasBreath && !BREATH.has(line.breath)) {
-      errors.push(`${label}: no inhale/exhale on any word`)
-    }
     if (!line.pose?.trim()) warnings.push(`${label}: missing pose`)
+
+    const measure = data.measures?.find((m) => m.lineId === line.id)
+    const hasAnchors = (measure?.anchors?.length ?? 0) > 0
+    const tokens = line.tokens?.length ? line.tokens : line.raw?.trim().split(/\s+/).map((text) => ({ text }))
+    const hasEmphasis = tokens?.some((t) => t.emphasis)
+    if (!hasAnchors && !hasEmphasis) {
+      warnings.push(`${label}: no bold anchors (beat mapping)`)
+    }
   }
 
   return { ok: errors.length === 0, file: rel, errors, warnings }
@@ -54,7 +53,7 @@ const files = target
   : fs.existsSync(vinyasaDir)
     ? fs
         .readdirSync(vinyasaDir)
-        .filter((f) => f.endsWith('.json'))
+        .filter((f) => f.endsWith('.json') && f !== 'manifest.json')
         .map((f) => path.join(vinyasaDir, f))
         .sort()
     : []

@@ -1,0 +1,958 @@
+{
+  "meta": {
+    "theme": "빈야사",
+    "song": "Idea 22",
+    "artist": "Gibran Alcocer · Anya Nami",
+    "seededAt": "2026-07-05T11:25:41.234Z",
+    "savedAt": "2026-07-06T10:09:59.735Z",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Rjz4o_mfros",
+    "timeSignature": "3/4",
+    "beatMs": 630
+  },
+  "lines": [
+    {
+      "id": 1,
+      "raw": "Greed and sorrow Go to the abyss of time",
+      "translation": "탐욕과 슬픔, 시간의 심연으로",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "Greed",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "and",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "sorrow",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Go",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "abyss",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "time",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "raw": "Seas are on fire, and the Moon's falling down So I'm playing my lyre in the last rays of Sun",
+      "translation": "바다는 타오르고 달은 떨어져, 해 마지막 빛 속 리라를 켜요",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "Seas",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "are",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fire,",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "and",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Moon's",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "falling",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "down",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "playing",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "my",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "lyre",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "last",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "rays",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Sun",
+          "breathAfter": null,
+          "emphasis": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "raw": "Be mine When the world ends and skies tumble down Why is the water So soothing to drown? Hug me tight You're lighter than feather This second of life Feels like forever",
+      "translation": "내 것이 되어줘요, 세상이 끝나도—꽉 안아줘, 이 순간이 영원 같아요",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "Be",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "mine",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "world",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "ends",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "and",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "skies",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "tumble",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "down",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Why",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "is",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "water",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "soothing",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "drown?",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "Hug",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "me",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "tight",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "You're",
+          "breathAfter": null,
+          "emphasis": true
+        },
+        {
+          "text": "lighter",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "than",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feather",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "This",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "second",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "life",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Feels",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "like",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "forever",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "raw": "When Truth sounds like lie When you and I Are buried in the ruins earth I'll be by your side for what it's worth If we face the gates of hell Mmh",
+      "translation": "진실이 거짓처럼 들려도, 잿더미 속에서도 네 곁에 있을게요",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Truth",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "sounds",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "like",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "lie",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "you",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "and",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Are",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "buried",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "ruins",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "earth",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'll",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "be",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "by",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "your",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "side",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "for",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "what",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "it's",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "worth",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "If",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "we",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "face",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "gates",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "hell",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Mmh",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "raw": "Seas are on fire And the Moon's falling down So I'm playing the lyre in the last rays of Sun",
+      "translation": "바다는 타오르고 달은 떨어져, 해 마지막 빛 속 리라를 켜요",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "Seas",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "are",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "on",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "fire",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "And",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Moon's",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "falling",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "down",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "I'm",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "playing",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "lyre",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "in",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "last",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "rays",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Sun",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "raw": "Be mine When the world ends and skies tumble down Why is the water So soothing to drown? You're lighter than feather This second of life Feels like forever",
+      "translation": "내 것이 되어줘요, 물속이 편안해도—깃털처럼 가벼운 이 순간",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "Be",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "mine",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "When",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "world",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "ends",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "and",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "skies",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "tumble",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "down",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Why",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "is",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "water",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "soothing",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "drown?",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "You're",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "lighter",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "than",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "feather",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "This",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "second",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "life",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Feels",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "like",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "forever",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "raw": "This world has failed us So let burn Let it burn Let it burn So let burn",
+      "translation": "이 세상은 우리를 버렸어요, 타오르게 해요, 타오르게",
+      "pose": "",
+      "tokens": [
+        {
+          "text": "This",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "world",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "has",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "failed",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "us",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "let",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "burn",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Let",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "it",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "burn",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "Let",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "it",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "burn",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "So",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "let",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "burn",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    }
+  ],
+  "measures": [
+    {
+      "lineId": 1,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        },
+        {
+          "beatIndex": 1,
+          "tokenIndex": 2
+        },
+        {
+          "beatIndex": 2,
+          "tokenIndex": 3
+        },
+        {
+          "beatIndex": 3,
+          "tokenIndex": 8
+        }
+      ]
+    },
+    {
+      "lineId": 2,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        },
+        {
+          "beatIndex": 1,
+          "tokenIndex": 6
+        },
+        {
+          "beatIndex": 2,
+          "tokenIndex": 11
+        },
+        {
+          "beatIndex": 3,
+          "tokenIndex": 14
+        },
+        {
+          "beatIndex": 4,
+          "tokenIndex": 19
+        }
+      ]
+    },
+    {
+      "lineId": 3,
+      "anchors": [
+        {
+          "beatIndex": 0,
+          "tokenIndex": 0
+        },
+        {
+          "beatIndex": 1,
+          "tokenIndex": 2
+        },
+        {
+          "beatIndex": 2,
+          "tokenIndex": 9
+        },
+        {
+          "beatIndex": 3,
+          "tokenIndex": 11
+        },
+        {
+          "beatIndex": 4,
+          "tokenIndex": 17
+        },
+        {
+          "beatIndex": 5,
+          "tokenIndex": 21
+        }
+      ]
+    },
+    {
+      "lineId": 4,
+      "anchors": []
+    },
+    {
+      "lineId": 5,
+      "anchors": []
+    },
+    {
+      "lineId": 6,
+      "anchors": []
+    },
+    {
+      "lineId": 7,
+      "anchors": []
+    }
+  ]
+}

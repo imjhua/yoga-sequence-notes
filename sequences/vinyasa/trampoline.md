@@ -1,8 +1,9 @@
 ---
-title: 빈야사 시퀀스 생성
+title: Trampoline
+flow: trampoline
 outline: false
 aside: false
 pageClass: vinyasa-page
 ---
 
-<LyricFlowStudio />
+<LyricFlowSaved />

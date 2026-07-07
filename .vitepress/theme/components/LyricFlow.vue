@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from 'vue'
 import LyricFlowVerse from './LyricFlowVerse.vue'
 import {
   type LyricFlowData,
+  anchorGlobalOffset,
   loadDraft,
   normalizeData,
   vinyasaJsonUrl,
@@ -55,9 +56,11 @@ watch(() => props.name, load)
         <span v-if="data.meta.artist" class="lyric-flow-artist">{{ data.meta.artist }}</span>
       </header>
       <LyricFlowVerse
-        v-for="line in data.lines"
+        v-for="(line, li) in data.lines"
         :key="line.id"
         :line="line"
+        :measure="data.measures?.[li]"
+        :global-anchor-offset="anchorGlobalOffset(data.measures ?? [], li)"
       />
     </template>
   </div>

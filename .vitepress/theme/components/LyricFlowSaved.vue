@@ -2,19 +2,31 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useData } from 'vitepress'
 import LyricFlowVerse from './LyricFlowVerse.vue'
+import LyricFlowYoutube from './LyricFlowYoutube.vue'
 import {
   type LyricFlowData,
+  anchorGlobalOffset,
+  applyPlaybackLocal,
+  DEFAULT_BEAT_MS,
   normalizeData,
   vinyasaJsonUrl,
 } from '../lyricFlow'
+import { useYoutubeBpmSync } from '../useYoutubeBpmSync'
 
 const props = defineProps<{ flow?: string }>()
 
 const { frontmatter } = useData()
-const fetched = ref<LyricFlowData | null>(null)
+const data = ref<LyricFlowData | null>(null)
 const loading = ref(false)
 
-const embedded = computed((): LyricFlowData | null => {
+const flowName = computed(() => props.flow || (frontmatter.value?.flow as string) || '')
+
+function mergePlayback(source: LyricFlowData): LyricFlowData {
+  if (!flowName.value) return source
+  return applyPlaybackLocal(flowName.value, source)
+}
+
+function readEmbedded(): LyricFlowData | null {
   const fm = frontmatter.value
   const raw = fm?.lyricFlow
   if (raw) {
@@ -36,26 +48,42 @@ const embedded = computed((): LyricFlowData | null => {
     }
   }
   return null
-})
-
-const flowName = computed(() => props.flow || (frontmatter.value?.flow as string) || '')
+}
 
 async function loadJson() {
-  if (embedded.value || !flowName.value) return
+  const embedded = readEmbedded()
+  if (embedded) {
+    data.value = mergePlayback(embedded)
+    return
+  }
+
+  if (!flowName.value) {
+    data.value = null
+    return
+  }
+
   loading.value = true
   try {
     const res = await fetch(vinyasaJsonUrl(flowName.value))
     if (res.ok) {
-      fetched.value = normalizeData(await res.json())
+      data.value = mergePlayback(normalizeData(await res.json()))
+    } else {
+      data.value = null
     }
   } catch {
-    fetched.value = null
+    data.value = null
   } finally {
     loading.value = false
   }
 }
 
-const data = computed(() => embedded.value ?? fetched.value)
+const flowId = computed(() => flowName.value)
+
+const { bpmAnalyzing, bpmError } = useYoutubeBpmSync(flowId, data)
+
+const editHref = computed(() =>
+  flowName.value ? `/sequences/vinyasa/?id=${flowName.value}` : '',
+)
 
 onMounted(loadJson)
 watch(flowName, loadJson)
@@ -63,19 +91,34 @@ watch(flowName, loadJson)
 
 <template>
   <div class="lyric-flow lyric-flow-saved">
+    <div v-if="editHref && data?.meta?.youtubeUrl" class="vinyasa-saved-top">
+      <LyricFlowYoutube
+        mode="embed"
+        compact
+        corner
+        :url="data.meta.youtubeUrl"
+        :time-signature="data.meta.timeSignature ?? ''"
+        :beat-ms="data.meta.beatMs ?? DEFAULT_BEAT_MS"
+        :bpm="data.meta.bpm"
+        :bpm-analyzing="bpmAnalyzing"
+        :bpm-error="bpmError"
+      />
+      <a :href="editHref" class="vinyasa-edit-link">편집하기 →</a>
+    </div>
+    <div v-else-if="editHref" class="vinyasa-saved-top vinyasa-saved-top-link-only">
+      <a :href="editHref" class="vinyasa-edit-link">편집하기 →</a>
+    </div>
     <p v-if="loading" class="lyric-flow-empty">불러오는 중…</p>
     <p v-else-if="!data?.lines?.length" class="lyric-flow-empty">
       저장된 수업 플로우가 없습니다.
     </p>
     <template v-else>
-      <header v-if="data.meta.song" class="lyric-flow-header">
-        <span class="lyric-flow-song">{{ data.meta.song }}</span>
-        <span v-if="data.meta.artist" class="lyric-flow-artist">{{ data.meta.artist }}</span>
-      </header>
       <LyricFlowVerse
-        v-for="line in data.lines"
+        v-for="(line, li) in data.lines"
         :key="line.id"
         :line="line"
+        :measure="data.measures?.[li]"
+        :global-anchor-offset="anchorGlobalOffset(data.measures ?? [], li)"
       />
     </template>
   </div>

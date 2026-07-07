@@ -65,6 +65,12 @@ onMounted(load)
       아직 시퀀스가 없습니다.
     </p>
     <table v-else class="sequence-list-table">
+      <colgroup>
+        <col class="sequence-list-col-class">
+        <col class="sequence-list-col-focus">
+        <col class="sequence-list-col-date">
+        <col class="sequence-list-col-actions">
+      </colgroup>
       <thead>
         <tr>
           <th scope="col">수업</th>
@@ -77,7 +83,6 @@ onMounted(load)
         <tr v-for="item in items" :key="`${item.kind}-${item.id}`">
           <td>
             <a :href="item.link">{{ item.title }}</a>
-            <span v-if="item.kind === 'vinyasa'" class="sequence-list-badge">빈야사</span>
           </td>
           <td>{{ item.focus || '—' }}</td>
           <td>{{ item.updated || '—' }}</td>

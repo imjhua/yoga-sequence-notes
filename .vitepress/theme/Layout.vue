@@ -7,7 +7,7 @@ const Layout = DefaultTheme.Layout
 
 <template>
   <Layout>
-    <template #layout-top>
+    <template #nav-bar-title-after>
       <SidebarToggle />
     </template>
   </Layout>

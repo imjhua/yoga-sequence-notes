@@ -4,7 +4,7 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { readManifest } from './vinyasa-manifest-lib.js'
+import { readManifest, vinyasaDir } from './vinyasa-manifest-lib.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.join(__dirname, '..')
@@ -35,7 +35,7 @@ export function listMdSequences() {
   while (match) {
     const title = match[1]
     const linkPath = match[2].replace(/\/$/, '')
-    if (linkPath === 'vinyasa') {
+    if (linkPath === 'vinyasa' || linkPath.startsWith('vinyasa/')) {
       match = re.exec(content)
       continue
     }
@@ -57,14 +57,17 @@ export function listMdSequences() {
 
 export function listSequences() {
   const manifest = readManifest()
-  const vinyasa = manifest.sequences.map((s) => ({
-    kind: 'vinyasa',
-    id: s.id,
-    title: s.title,
-    focus: '팝송 가사 플로우',
-    link: '/sequences/vinyasa/',
-    updated: s.updatedAt?.slice(0, 10) ?? '',
-  }))
+  const vinyasa = manifest.sequences.map((s) => {
+    const hasPage = fs.existsSync(path.join(vinyasaDir, `${s.id}.md`))
+    return {
+      kind: 'vinyasa',
+      id: s.id,
+      title: hasPage ? `빈야사-${s.title}` : s.title,
+      focus: '팝송 가사 플로우',
+      link: hasPage ? `/sequences/vinyasa/${s.id}` : '/sequences/vinyasa/',
+      updated: s.updatedAt?.slice(0, 10) ?? '',
+    }
+  })
   const md = listMdSequences()
 
   return [...vinyasa, ...md].sort((a, b) =>

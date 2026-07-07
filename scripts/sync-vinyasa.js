@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
- * Mirror sequences/vinyasa/*.json → public/vinyasa/ (remove stale copies).
+ * Mirror sequences/vinyasa/*.json → public/vinyasa/ + sync saved .md pages.
  */
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { syncVinyasaPages } from './vinyasa-manifest-lib.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.join(__dirname, '..')
@@ -32,4 +33,10 @@ for (const file of fs.readdirSync(destDir).filter((f) => f.endsWith('.json'))) {
 
 if (files.length > 0) {
   console.log(`sync-vinyasa: ${files.length} file(s) → public/vinyasa/`)
+}
+
+syncVinyasaPages()
+const pages = fs.readdirSync(srcDir).filter((f) => f.endsWith('.md') && f !== 'index.md')
+if (pages.length > 0) {
+  console.log(`sync-vinyasa: ${pages.length} page(s) in sequences/vinyasa/`)
 }

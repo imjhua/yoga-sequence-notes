@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "theme": "빈야사",
+    "song": "Sign of the Times",
+    "artist": "Harry Styles",
+    "seededAt": "2026-07-05T10:45:04.928Z",
+    "savedAt": "2026-07-05T10:47:06.560Z"
+  },
+  "lines": [
+    {
+      "id": 1,
+      "raw": "Just stop your crying",
+      "translation": "울음을 멈춰요",
+      "pose": "1",
+      "tokens": [
+        {
+          "text": "Just",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "stop",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "your",
+          "breathAfter": "inhale",
+          "emphasis": true
+        },
+        {
+          "text": "crying",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "raw": "It's a sign of the times",
+      "translation": "시대의 징표예요",
+      "pose": "2",
+      "tokens": [
+        {
+          "text": "It's",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "a",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "sign",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "of",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": "exhale",
+          "emphasis": true
+        },
+        {
+          "text": "times",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "raw": "Welcome to the final show",
+      "translation": "마지막 공연에 온 걸 환영해요",
+      "pose": "3",
+      "tokens": [
+        {
+          "text": "Welcome",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "to",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "the",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "final",
+          "breathAfter": "inhale",
+          "emphasis": false
+        },
+        {
+          "text": "show",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "raw": "Hope you're wearing your best clothes",
+      "translation": "가장 멋진 옷을 입었길 바라요",
+      "pose": "4",
+      "tokens": [
+        {
+          "text": "Hope",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "you're",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "wearing",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "your",
+          "breathAfter": "exhale",
+          "emphasis": false
+        },
+        {
+          "text": "best",
+          "breathAfter": null,
+          "emphasis": false
+        },
+        {
+          "text": "clothes",
+          "breathAfter": null,
+          "emphasis": false
+        }
+      ]
+    }
+  ]
+}

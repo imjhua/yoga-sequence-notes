@@ -5,6 +5,7 @@ import {
   upsertManifestEntry,
   syncSequenceJson,
   sequenceTitle,
+  writeVinyasaPage,
 } from './vinyasa-manifest-lib.js'
 
 export function saveVinyasaFlow(id, data) {
@@ -26,10 +27,12 @@ export function saveVinyasaFlow(id, data) {
 
   syncSequenceJson(id, payload)
   upsertManifestEntry(id, payload)
+  writeVinyasaPage(id, payload)
 
   return {
     id,
     jsonPath: `sequences/vinyasa/${id}.json`,
+    mdPath: `sequences/vinyasa/${id}.md`,
     title: sequenceTitle(payload, id),
   }
 }
