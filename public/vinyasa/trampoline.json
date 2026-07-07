@@ -532,7 +532,7 @@
       "id": 16,
       "raw": "fall in I wanted it to",
       "translation": "",
-      "pose": "파르스보타나",
+      "pose": "파르보타나 준비",
       "tokens": [
         {
           "text": "fall",
@@ -656,7 +656,7 @@
       "id": 19,
       "raw": "paradise (paradise) Solid block of",
       "translation": "",
-      "pose": "고개 정면 유지",
+      "pose": "몸통 더 들어올리기",
       "tokens": [
         {
           "text": "paradise",
@@ -1140,7 +1140,7 @@
       "id": 32,
       "raw": "la-la",
       "translation": "",
-      "pose": "파르보타나 ",
+      "pose": "파르보타나 준비",
       "tokens": [
         {
           "text": "la-la",
@@ -1179,7 +1179,7 @@
       "id": 35,
       "raw": "la-la",
       "translation": "",
-      "pose": "고개 정면 유지",
+      "pose": "몸통 더 들어올리기",
       "tokens": [
         {
           "text": "la-la",
