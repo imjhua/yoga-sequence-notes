@@ -61,6 +61,26 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 
 **수정 후에도 동일** — MD/마인드맵/sidebar 갱신 → validate → dev 서버 확인 → URL 안내.
 
+### 🔄 프롬프트 변경 시 (기존 시퀀스)
+
+사용자가 **기존 시퀀스의 특정 섹션만 프롬프트 변경**하면:
+
+1. **변경 지점만 식별** — "프롬프트 변경. {섹션명} / 추가 라인 / 삭제 라인"
+2. **새 시퀀스 생성 X** — 기존 시퀀스 파일만 업데이트
+3. `sequences/prompts/seq{N}-*.prompt.txt` 해당 섹션만 수정
+4. `sequences/seq{N}-*.md` 표만 갱신 (다른 섹션 터치 금지)
+5. 마인드맵 재생성 X (변경 필요 시만)
+6. validate · dev 미리보기 · URL 안내
+
+**예시:**
+```
+사용자: "프롬프트 변경. 수카사나 상단에 '두손 하늘 위로 뻗고' 등 3줄 추가해줘"
+에이전트:
+  1. seq{N} prompt.txt 수카사나 섹션만 수정
+  2. seq{N} MD의 수카사나 표만 갱신 (다른 섹션 건드리지 않기!)
+  3. validate · dev 확인 · URL 안내
+```
+
 ### 🛑 수동 — 사용자가 배포를 요청할 때만
 
 **커밋·push·배포는 사용자가 명시적으로 요청할 때만** 실행.
