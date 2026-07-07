@@ -1102,6 +1102,11 @@ html.sidebar-hidden .VPDoc {
   min-width: 13.5rem;
 }
 
+/* corner 모드에서는 BPM 박스 숨김 */
+.lyric-youtube-corner .lyric-youtube-beats {
+  display: none;
+}
+
 .lyric-youtube-embed iframe {
   position: absolute;
   inset: 0;
@@ -1113,13 +1118,13 @@ html.sidebar-hidden .VPDoc {
 .vinyasa-saved-top {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.65rem;
   margin: 0 0 0.35rem;
 }
 
 .vinyasa-saved-top-link-only {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .vinyasa-saved-top .vinyasa-edit-link {
