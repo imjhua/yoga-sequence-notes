@@ -91,8 +91,9 @@ watch(flowName, loadJson)
 
 <template>
   <div class="lyric-flow lyric-flow-saved">
-    <div v-if="editHref && data?.meta?.youtubeUrl" class="vinyasa-saved-top">
+    <div v-if="editHref" class="vinyasa-saved-top">
       <LyricFlowYoutube
+        v-if="data?.meta?.youtubeUrl"
         mode="embed"
         compact
         corner
@@ -103,9 +104,6 @@ watch(flowName, loadJson)
         :bpm-analyzing="bpmAnalyzing"
         :bpm-error="bpmError"
       />
-      <a :href="editHref" class="vinyasa-edit-link">편집하기 →</a>
-    </div>
-    <div v-else-if="editHref" class="vinyasa-saved-top vinyasa-saved-top-link-only">
       <a :href="editHref" class="vinyasa-edit-link">편집하기 →</a>
     </div>
     <p v-if="loading" class="lyric-flow-empty">불러오는 중…</p>

@@ -1102,8 +1102,12 @@ html.sidebar-hidden .VPDoc {
   min-width: 13.5rem;
 }
 
-/* 저장된 가사 플로우(LyricFlowSaved)의 corner 모드에서만 BPM 박스 숨김 */
+/* 저장된 가사 플로우(LyricFlowSaved)의 corner 모드에서만 BPM 박스 & 박자 영역 숨김 */
 .lyric-flow-saved .lyric-youtube-corner .lyric-youtube-beats {
+  display: none;
+}
+
+.lyric-flow-saved .lyric-youtube-corner .lyric-youtube-side {
   display: none;
 }
 
