@@ -45,11 +45,11 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 1. 사용자가 **채팅에 영어 가사** 제공 (줄바꿈 = 구절) — **Studio 입력 UI 사용 안 함**
 2. `sequences/prompts/seq{N}-{slug}.prompt.txt` 저장 (원문만)
 3. 에이전트가 구절마다 **한국어 번역** (수업 cue 톤, 기계번역 API 사용 금지)
-4. `build-vinyasa-json.js {id} … --active` → `{id}.json` + manifest
-5. sync-vinyasa · dev · `/sequences/vinyasa/` 안내
+4. `node scripts/build-vinyasa-json.js … --prompt … --ko …` 로 JSON 생성
+5. `node scripts/sync-vinyasa.js` · MD에 `<LyricFlowStudio name="…" />` (initial-lyrics **없음**)
+6. validate:vinyasa · dev 서버 · 미리보기 URL
 
-**inhale/exhale · 강조 · 메모** — Studio에서만.  
-**저장** → `{id}.json` + manifest (sidebar **빈야사 1개** 유지).
+**inhale/exhale · 강조 · 메모(자세)** 는 사용자가 Studio에서만 설정.
 
 **그 외 테마 (힐링 등)**
 1. `sequences/seq{N}-*.md` 작성 또는 수정
@@ -78,12 +78,44 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 | 제목 | `{theme}-{peak_pose}` — 예: `힐링-사마코나사나` |
 | 부제 | `**포커스:** … · **피크포즈:** …` (영어 산스크리트名 **금지**) |
 | **개요** | **`핵심 cue` 한 줄만** — 테마·총 시간 등 제거 |
-| 표 | 3열: 포즈 \| 1depth cue \| 2depth cue — `#` 인덱스 없음 |
+| 표 | **3컬럼 고정**: 포즈 (15%) \| # (5%) \| 동작 (80%) — 호흡은 동작 내 `inhale`/`exhale` 배지 |
 | index | `\| 수업 \| 포커스 \| 날짜 \|` — **최신순** |
 
 본문 순서: **개요 → 수업 메모 → 시퀀스 본문 → 마인드맵 → 초기 프롬프트**
 
-**빈야사 (`theme: 빈야사`)**: [vinyasa-lyric-template.md](references/vinyasa-lyric-template.md) — manifest + `<LyricFlowStudio />`
+### 프롬프트 호흡 형식 자동 변환 규칙
+
+입력 프롬프트 예시:
+```
+빌드업
+* 욷카타사나
+* 빈야사
+* 마시는 숨: 한쪽다리 뒤로
+* 내쉬는 숨: 무릎 접어 가슴 앞으로
+* 마시는 숨: 전사1
+* 내쉬는 숨: 전사2
+```
+
+변환 규칙:
+- `* 포즈명` (호흡 없음): 새 섹션 시작 → `| **포즈명** | 1 | |`
+  - 다음 호흡 정보부터 # 번호 증가
+- `* 마시는 숨: 동작`: `| | # | `inhale` 동작 |` (# 증가)
+- `* 내쉬는 숨: 동작`: `| | # | `exhale` 동작 |` (# 증가)
+- **모든 표는 3컬럼 고정 유지**
+
+변환된 MD 표:
+```
+| 포즈 | # | 동작 |
+|------|---|------|
+| **욷카타사나** | 1 | |
+| **빈야사** | 2 | |
+| **빌드업** | 3 | `inhale` 한쪽다리 뒤로 |
+| | 4 | `exhale` 무릎 접어 가슴 앞으로 |
+| | 5 | `inhale` 전사1 |
+| | 6 | `exhale` 전사2 |
+```
+
+**빈야사 (`theme: 빈야사`)**: [vinyasa-lyric-template.md](references/vinyasa-lyric-template.md) — 가사 플로우 JSON + `<LyricFlow />`
 
 ---
 
