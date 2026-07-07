@@ -106,7 +106,7 @@ watch(flowName, loadJson)
       />
       <div class="vinyasa-links">
         <a :href="editHref" class="vinyasa-edit-link">편집하기 →</a>
-        <a href="/sequences/seq4-ardha-chandrasana" class="vinyasa-edit-link">← 아르다찬드라사나</a>
+        <a href="/sequences/seq4-ardha-chandrasana" class="vinyasa-edit-link">아르다찬드라사나 →</a>
       </div>
     </div>
     <p v-if="loading" class="lyric-flow-empty">불러오는 중…</p>
