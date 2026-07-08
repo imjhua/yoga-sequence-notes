@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" class="sequence-mindmap" viewBox="0 0 380 736" font-family="system-ui, sans-serif">
-<rect width="380" height="736" fill="var(--mm-bg)"/>
+<svg xmlns="http://www.w3.org/2000/svg" class="sequence-mindmap" viewBox="0 0 380 658" font-family="system-ui, sans-serif">
+<rect width="380" height="658" fill="var(--mm-bg)"/>
 <rect x="30" y="24" width="320" height="64" rx="12" fill="var(--mm-root-fill)" stroke="var(--mm-root-stroke)" stroke-width="1.5"/>
 <text x="190" y="50" text-anchor="middle" font-size="16" font-weight="700" fill="var(--mm-root-title)">아르다찬드라사나</text>
 <text x="190" y="72" text-anchor="middle" font-size="12" fill="var(--mm-root-sub)">목표자세 · 빈야사</text>
 <line x1="190" y1="88" x2="190" y2="108" stroke="var(--mm-line)" stroke-width="1.5"/>
 <rect x="30" y="108" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
-<text x="190" y="132" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">수카사나</text>
-<text x="190" y="152" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">전굴 · 측면</text>
+<text x="190" y="132" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">비라사나</text>
+<text x="190" y="152" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">워밍업 · 전굴</text>
 <line x1="190" y1="166" x2="190" y2="186" stroke="var(--mm-line)" stroke-width="1.5"/>
 <rect x="30" y="186" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
 <text x="190" y="210" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">사상가사나</text>
 <text x="190" y="230" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">롤업 · 등·어깨</text>
 <line x1="190" y1="244" x2="190" y2="264" stroke="var(--mm-line)" stroke-width="1.5"/>
 <rect x="30" y="264" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
-<text x="190" y="288" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">다운독</text>
-<text x="190" y="308" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">계단타기 · 워밍업</text>
+<text x="190" y="288" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">다운독-테이블 전환</text>
+<text x="190" y="308" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">소고양이 플로우</text>
 <line x1="190" y1="322" x2="190" y2="342" stroke="var(--mm-line)" stroke-width="1.5"/>
 <rect x="30" y="342" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
 <text x="190" y="366" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">테이블</text>
@@ -26,14 +26,10 @@
 <text x="190" y="464" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">수리야나마스카라</text>
 <line x1="190" y1="478" x2="190" y2="498" stroke="var(--mm-line)" stroke-width="1.5"/>
 <rect x="30" y="498" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
-<text x="190" y="522" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">빌드업 1</text>
-<text x="190" y="542" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">우티타 트리코나</text>
+<text x="190" y="522" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">빌드업</text>
+<text x="190" y="542" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">호흡 · 시퀀스</text>
 <line x1="190" y1="556" x2="190" y2="576" stroke="var(--mm-line)" stroke-width="1.5"/>
-<rect x="30" y="576" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
-<text x="190" y="600" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">빌드업 2</text>
-<text x="190" y="620" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">호흡 · 시퀀스</text>
-<line x1="190" y1="634" x2="190" y2="654" stroke="var(--mm-line)" stroke-width="1.5"/>
-<rect x="30" y="654" width="320" height="58" rx="10" fill="var(--mm-peak-fill)" stroke="var(--mm-peak-stroke)" stroke-width="2"/>
-<text x="190" y="678" text-anchor="middle" font-size="14" font-weight="700" fill="var(--mm-peak-title)">아르다찬드라사나</text>
-<text x="190" y="698" text-anchor="middle" font-size="11" fill="var(--mm-peak-sub)">균형 · 옆구리</text>
+<rect x="30" y="576" width="320" height="58" rx="10" fill="var(--mm-peak-fill)" stroke="var(--mm-peak-stroke)" stroke-width="2"/>
+<text x="190" y="600" text-anchor="middle" font-size="14" font-weight="700" fill="var(--mm-peak-title)">아르다찬드라사나</text>
+<text x="190" y="620" text-anchor="middle" font-size="11" fill="var(--mm-peak-sub)">균형 · 옆구리</text>
 </svg>
