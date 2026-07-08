@@ -70,7 +70,7 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 2. **새 시퀀스 생성 X** — 기존 시퀀스 파일만 업데이트
 3. `sequences/prompts/seq{N}-*.prompt.txt` 해당 섹션만 수정
 4. `sequences/seq{N}-*.md` 표만 갱신 (다른 섹션 터치 금지)
-5. **마인드맵 자동 재생성**: `python3 scripts/generate-mindmap.py seq{N}` (프롬프트 변경 시에도 항상 실행)
+5. 마인드맵 재생성 X (변경 필요 시만)
 6. validate · dev 미리보기 · URL 안내
 
 **예시:**
@@ -101,7 +101,6 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 | **개요** | **`핵심 cue` 한 줄만** — 테마·총 시간 등 제거 |
 | 표 | **3컬럼 고정**: 포즈 (15%) \| # (5%) \| 동작 (80%) — 호흡은 동작 내 `inhale`/`exhale` 배지 |
 | index | `\| 수업 \| 포커스 \| 날짜 \|` — **최신순** |
-| **마인드맵** | Frontmatter `aside: true` + `<MindmapAside name="seq{N}" />` (오른쪽 사이드바 sticky) |
 
 본문 순서: **개요 → 수업 메모 → 시퀀스 본문 → 마인드맵 → 초기 프롬프트** (참고 링크는 제목 라인에만)
 

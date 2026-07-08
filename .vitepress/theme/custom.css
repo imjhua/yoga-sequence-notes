@@ -590,48 +590,6 @@ html.sidebar-hidden .VPDoc {
   background: var(--vp-c-bg-soft);
 }
 
-/* MindmapAside — 오른쪽 사이드바 sticky 고정 */
-@media (min-width: 960px) {
-  .aside-mindmap-wrapper {
-    position: fixed;
-    right: 0;
-    top: 3.5rem;
-    width: 280px;
-    max-height: calc(100vh - 3.5rem - 1rem);
-    overflow-y: auto;
-    padding-right: 0;
-  }
-
-  /* 목차 아래에 마인드맵이 배치되도록 조정 */
-  .VPDoc:has(.aside-mindmap-wrapper) {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-  }
-
-  .VPDoc:has(.aside-mindmap-wrapper) .content-container {
-    grid-column: 1;
-  }
-
-  .VPDoc:has(.aside-mindmap-wrapper) .aside {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  /* 목차 위에 마인드맵 배치 */
-  .VPDoc:has(.aside-mindmap-wrapper) .aside .VPDocAsideOutlineRoot {
-    order: 2;
-  }
-
-  .aside-mindmap-wrapper {
-    order: 1;
-    position: static;
-    width: auto;
-    max-height: none;
-  }
-}
-
 .copy-prompt-header {
   display: flex;
   align-items: center;
