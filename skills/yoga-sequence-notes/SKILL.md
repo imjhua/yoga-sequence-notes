@@ -53,6 +53,7 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 
 **그 외 테마 (힐링 등)**
 1. `sequences/seq{N}-*.md` 작성 또는 수정
+   - **참고 링크 (선택)**: 제목 라인에 · `[수업명](/link)` 추가 (독립 섹션 X, 인라인만)
 2. `python3 scripts/generate-mindmap.py seq{N}` (필요 시 preset 추가)
 3. 신규 시퀀스면 `sequences/index.md` + `.vitepress/config.ts` 업데이트
 4. `node scripts/validate-sequence.js` 실행
@@ -96,12 +97,12 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 | 영역 | 규칙 |
 |------|------|
 | 제목 | `{theme}-{peak_pose}` — 예: `힐링-사마코나사나` |
-| 부제 | `**포커스:** … · **피크포즈:** …` (영어 산스크리트名 **금지**) |
+| 부제 | `**포커스:** … · **피크포즈:** …` (영어 산스크리트名 **금지**) — 선택적 참고 링크: · [`수업명`](/link) |
 | **개요** | **`핵심 cue` 한 줄만** — 테마·총 시간 등 제거 |
 | 표 | **3컬럼 고정**: 포즈 (15%) \| # (5%) \| 동작 (80%) — 호흡은 동작 내 `inhale`/`exhale` 배지 |
 | index | `\| 수업 \| 포커스 \| 날짜 \|` — **최신순** |
 
-본문 순서: **개요 → 수업 메모 → 시퀀스 본문 → 마인드맵 → 초기 프롬프트**
+본문 순서: **개요 → 수업 메모 → 시퀀스 본문 → 마인드맵 → 초기 프롬프트** (참고 링크는 제목 라인에만)
 
 ### 프롬프트 호흡 형식 자동 변환 규칙
 

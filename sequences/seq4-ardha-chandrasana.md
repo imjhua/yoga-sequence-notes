@@ -9,7 +9,7 @@ updated: 2026-07-07
 
 # 빈야사-아르다찬드라사나
 
-**포커스:** 균형 · 옆구리 열기 · **피크포즈:** 아르다찬드라사나
+**포커스:** 균형 · 옆구리 열기 · **피크포즈:** 아르다찬드라사나 · [Trampoline](/sequences/vinyasa/trampoline)
 
 ## 개요
 
@@ -133,10 +133,6 @@ updated: 2026-07-07
 ## 마인드맵
 
 <Mindmap name="seq4" />
-
-## 다음 수업 연결
-
-→ [빈야사-Trampoline](/sequences/vinyasa/trampoline)
 
 ## 초기 프롬프트
 

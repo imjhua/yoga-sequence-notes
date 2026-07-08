@@ -17,6 +17,11 @@ updated: 2026-07-04
 
 **포커스:** 몸 앞면 깨우기 · **피크포즈:** 우르드바 다누라사나
 
+또는 참고 링크가 있으면:
+
+**포커스:** 몸 앞면 깨우기 · **피크포즈:** 우르드바 다누라사나 · [다음 수업명](/link/to/next)
+```
+
 ## 개요
 
 - **핵심 cue**: cue1 / cue2 / cue3
@@ -51,6 +56,7 @@ import sourcePrompt from './prompts/seq{N}-{slug}.prompt.txt?raw'
 ## 섹션 순서 (고정)
 
 1. `# {theme}-{peak_pose}` + **포커스 · 피크포즈** (영어 괄호 금지)
+   - **선택:** 참고 링크 추가: · [`[수업명]`](/link) (예: seq4에서 Trampoline 링크)
 2. **개요** — **핵심 cue만** (테마·총 시간 X, duration은 frontmatter)
 3. **수업 메모**
 4. 시퀀스 본문 (번호 섹션 + 3열 표)
