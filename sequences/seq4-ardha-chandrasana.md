@@ -5,6 +5,7 @@ theme: 빈야사
 focus: 균형 · 옆구리 열기
 source_prompt: sequences/prompts/seq4-ardha-chandrasana.prompt.txt
 updated: 2026-07-07
+aside: true
 ---
 
 # 빈야사-아르다찬드라사나
@@ -132,7 +133,9 @@ updated: 2026-07-07
 
 ## 마인드맵
 
-<Mindmap name="seq4" />
+<MindmapAside name="seq4" />
+
+본 시퀀스의 구조는 오른쪽 사이드바에 마인드맵으로 표시됩니다. 스크롤하면서 시퀀스 흐름을 함께 확인할 수 있습니다.
 
 ## 초기 프롬프트
 
