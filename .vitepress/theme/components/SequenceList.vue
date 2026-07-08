@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { clearDraft } from '../lyricFlow'
 import {
   deleteMdFromServer,
@@ -12,6 +12,8 @@ const items = ref<SequenceListItem[]>([])
 const loading = ref(true)
 const deletingId = ref('')
 const message = ref('')
+
+const isDev = computed(() => import.meta.env.DEV)
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return '—'
@@ -93,14 +95,14 @@ onMounted(load)
         <col class="sequence-list-col-class">
         <col class="sequence-list-col-focus">
         <col class="sequence-list-col-date">
-        <col class="sequence-list-col-actions">
+        <col v-if="isDev" class="sequence-list-col-actions">
       </colgroup>
       <thead>
         <tr>
           <th scope="col">수업</th>
           <th scope="col">포커스</th>
           <th scope="col">날짜</th>
-          <th scope="col" class="sequence-list-actions-col">삭제</th>
+          <th v-if="isDev" scope="col" class="sequence-list-actions-col">삭제</th>
         </tr>
       </thead>
       <tbody>
@@ -110,7 +112,7 @@ onMounted(load)
           </td>
           <td>{{ item.focus || '—' }}</td>
           <td>{{ formatDate(item.updated) }}</td>
-          <td class="sequence-list-actions-col">
+          <td v-if="isDev" class="sequence-list-actions-col">
             <button
               type="button"
               class="sequence-list-delete"

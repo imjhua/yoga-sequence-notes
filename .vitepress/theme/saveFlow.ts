@@ -63,10 +63,48 @@ export function downloadTextFile(filename: string, text: string): void {
 }
 
 export async function fetchSequenceList(): Promise<SequenceListItem[]> {
-  const res = await fetch('/api/sequences/list')
-  const json = await res.json()
-  if (!res.ok) throw new Error(json.error || 'List failed')
-  return json.items as SequenceListItem[]
+  try {
+    const res = await fetch('/api/sequences/list')
+    if (!res.ok) throw new Error('API not available')
+    const json = await res.json()
+    return json.items as SequenceListItem[]
+  } catch {
+    // 프로덕션 폴백: 정적 목록 반환
+    return [
+      {
+        kind: 'md',
+        id: 'seq6-hatha-urdhva-danurasana',
+        title: '하타-우르드바다누라사나',
+        focus: '백밴드 강화 · 역굴곡 · 가슴 열기',
+        link: '/sequences/seq6-hatha-urdhva-danurasana',
+        updated: '2026-07-08',
+      },
+      {
+        kind: 'md',
+        id: 'seq4-ardha-chandrasana',
+        title: '빈야사-아르다찬드라사나',
+        focus: '균형 · 옆구리 열기',
+        link: '/sequences/seq4-ardha-chandrasana',
+        updated: '2026-07-07',
+      },
+      {
+        kind: 'md',
+        id: 'seq2-upavistha-konasana',
+        title: '힐링-우파비스타코나사나',
+        focus: '고관절·햄스트링 열기',
+        link: '/sequences/seq2-upavistha-konasana',
+        updated: '2026-07-05',
+      },
+      {
+        kind: 'md',
+        id: 'seq0-urdhva-dhanurasana',
+        title: '힐링-우르드바 다누라사나',
+        focus: '몸 앞면 깨우기',
+        link: '/sequences/seq0-urdhva-dhanurasana',
+        updated: '2026-07-04',
+      },
+    ]
+  }
 }
 
 export async function deleteVinyasaFromServer(
