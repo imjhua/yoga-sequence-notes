@@ -13,6 +13,30 @@ const loading = ref(true)
 const deletingId = ref('')
 const message = ref('')
 
+function formatDate(dateStr: string): string {
+  if (!dateStr) return '—'
+  try {
+    const date = new Date(dateStr + 'T00:00:00Z')
+    const today = new Date()
+    today.setUTCHours(0, 0, 0, 0)
+    
+    const diffTime = today.getTime() - date.getTime()
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
+    
+    if (diffDays === 0) return '오늘'
+    if (diffDays === 1) return '어제'
+    if (diffDays < 7) return `${diffDays}일 전`
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)}주 전`
+    
+    // 월-일 형식
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+    const day = String(date.getUTCDate()).padStart(2, '0')
+    return `${month}-${day}`
+  } catch {
+    return dateStr
+  }
+}
+
 async function load() {
   loading.value = true
   message.value = ''
@@ -85,7 +109,7 @@ onMounted(load)
             <a :href="item.link">{{ item.title }}</a>
           </td>
           <td>{{ item.focus || '—' }}</td>
-          <td>{{ item.updated || '—' }}</td>
+          <td>{{ formatDate(item.updated) }}</td>
           <td class="sequence-list-actions-col">
             <button
               type="button"
