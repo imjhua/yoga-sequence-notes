@@ -45,6 +45,7 @@ export default defineConfig({
             { text: '빈야사 시퀀스 생성', link: '/sequences/vinyasa/' },
             ...vinyasaPages,
             { text: '---', collapsed: false },
+            { text: '하타-우르드바다누라사나', link: '/sequences/seq6-hatha-urdhva-danurasana' },
             { text: '힐링-수카사나', link: '/sequences/seq5-sukhasana' },
             { text: '빈야사-아르다찬드라사나', link: '/sequences/seq4-ardha-chandrasana' },
             { text: '빈야사-사상가사나', link: '/sequences/seq3-sasangasana' },
