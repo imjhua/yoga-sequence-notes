@@ -70,16 +70,31 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 2. **새 시퀀스 생성 X** — 기존 시퀀스 파일만 업데이트
 3. `sequences/prompts/seq{N}-*.prompt.txt` 해당 섹션만 수정
 4. `sequences/seq{N}-*.md` 표만 갱신 (다른 섹션 터치 금지)
-5. 마인드맵 재생성 X (변경 필요 시만)
+5. **마인드맵 업데이트 검토**:
+   - 변경된 섹션이 **마인드맵 제목/부제와 관련**있으면 `scripts/generate-mindmap.py` 스크립트 수정
+   - 마인드맵 preset 데이터와 실제 시퀀스가 일치하는지 확인
+   - 필요하면 `python3 scripts/generate-mindmap.py seq{N}` 재생성
 6. validate · dev 미리보기 · URL 안내
 
-**예시:**
+**예시 1 (섹션명 변경 X):**
 ```
 사용자: "프롬프트 변경. 수카사나 상단에 '두손 하늘 위로 뻗고' 등 3줄 추가해줘"
 에이전트:
   1. seq{N} prompt.txt 수카사나 섹션만 수정
   2. seq{N} MD의 수카사나 표만 갱신 (다른 섹션 건드리지 않기!)
-  3. validate · dev 확인 · URL 안내
+  3. 마인드맵 검토: "수카사나" → 제목 변경 없음 → 스크립트 수정 불필요
+  4. validate · dev 확인 · URL 안내
+```
+
+**예시 2 (섹션명 변경 → 마인드맵 업데이트 필요):**
+```
+사용자: "프롬프트 변경. '다운독' 섹션명을 '다운독-테이블 전환'으로 바꾸고, 소고양이 플로우 추가해줘"
+에이전트:
+  1. seq{N} prompt.txt의 "다운독" 섹션을 "다운독-테이블 전환(소고양이)" 또는 유사하게 수정
+  2. seq{N} MD 표 업데이트 + 섹션 제목 변경
+  3. 마인드맵 검토: 마인드맵 PRESETS["seq{N}"]["steps"]의 해당 항목 수정
+  4. `scripts/generate-mindmap.py` 해당 섹션의 제목·부제 수정 → 재생성
+  5. validate · dev 확인 · URL 안내
 ```
 
 ### 🛑 수동 — 사용자가 배포를 요청할 때만
@@ -154,7 +169,57 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 
 ---
 
-## 로컬 서버 자동 기동
+## 마인드맵 관리
+
+### PRESETS 데이터 구조
+
+마인드맵은 `scripts/generate-mindmap.py`의 `PRESETS` 딕셔너리에 의해 제어됩니다:
+
+```python
+"seq{N}": {
+    "root": ("피크포즈명", "포커스 · 테마"),
+    "steps": [
+        ("섹션1 제목", "섹션1 부제"),
+        ("섹션2 제목", "섹션2 부제"),
+        # ... 더 많은 섹션
+    ],
+    "peak": ("피크포즈명", "피크 설명"),
+}
+```
+
+### 유지보수 체크리스트
+
+프롬프트/MD 수정 후 **반드시** 확인:
+
+1. **마인드맵 제목이 실제 섹션명과 일치?**
+   - `sequences/seq{N}-*.md`의 `## {N}. {섹션명}` vs `PRESETS["seq{N}"]["steps"][{N-1}][0]`
+   - 일치하지 않으면 → `scripts/generate-mindmap.py` 수정
+
+2. **마인드맵 부제가 실제 내용을 반영?**
+   - 예: "계단타기 · 워밍업"이 실제로 "다운독-테이블 전환" 섹션에 없으면 → 수정 필요
+   - 부제는 **섹션의 핵심 동작/포커스**를 간단히 표현
+
+3. **신규 섹션 추가/삭제?**
+   - 추가: `PRESETS["seq{N}"]["steps"]`에 새 튜플 추가
+   - 삭제: 해당 튜플 제거
+   - 재생성: `python3 scripts/generate-mindmap.py seq{N}`
+
+4. **커밋 포함**:
+   - `scripts/generate-mindmap.py` + `public/mindmaps/seq{N}-mindmap.svg` 함께 커밋
+
+### 재생성 커맨드
+
+```bash
+# 단일 시퀀스 재생성
+python3 scripts/generate-mindmap.py seq4
+
+# 모든 시퀀스 재생성 (선택)
+for seq in seq0 seq2 seq3 seq4 seq5 seq6; do
+  python3 scripts/generate-mindmap.py "$seq"
+done
+```
+
+---
 
 ```bash
 cd ~/Projects/yoga-sequence-notes
