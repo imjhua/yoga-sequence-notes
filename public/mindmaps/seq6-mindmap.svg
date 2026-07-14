@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" class="sequence-mindmap" viewBox="0 0 380 736" font-family="system-ui, sans-serif">
-<rect width="380" height="736" fill="var(--mm-bg)"/>
+<svg xmlns="http://www.w3.org/2000/svg" class="sequence-mindmap" viewBox="0 0 380 814" font-family="system-ui, sans-serif">
+<rect width="380" height="814" fill="var(--mm-bg)"/>
 <rect x="30" y="24" width="320" height="64" rx="12" fill="var(--mm-root-fill)" stroke="var(--mm-root-stroke)" stroke-width="1.5"/>
 <text x="190" y="50" text-anchor="middle" font-size="16" font-weight="700" fill="var(--mm-root-title)">우르드바다누라사나</text>
 <text x="190" y="72" text-anchor="middle" font-size="12" fill="var(--mm-root-sub)">목표자세 · 가슴 열기</text>
@@ -18,8 +18,8 @@
 <text x="190" y="308" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">측면 열기 · 5분</text>
 <line x1="190" y1="322" x2="190" y2="342" stroke="var(--mm-line)" stroke-width="1.5"/>
 <rect x="30" y="342" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
-<text x="190" y="366" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">마카라사나</text>
-<text x="190" y="386" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">엎드린자세 · 10분</text>
+<text x="190" y="366" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">엎드린자세</text>
+<text x="190" y="386" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">마카라 · 부장가 · 다누라</text>
 <line x1="190" y1="400" x2="190" y2="420" stroke="var(--mm-line)" stroke-width="1.5"/>
 <rect x="30" y="420" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
 <text x="190" y="444" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">다운독</text>
@@ -33,7 +33,11 @@
 <text x="190" y="600" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">다누라사나</text>
 <text x="190" y="620" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">백밴드 · 35분</text>
 <line x1="190" y1="634" x2="190" y2="654" stroke="var(--mm-line)" stroke-width="1.5"/>
-<rect x="30" y="654" width="320" height="58" rx="10" fill="var(--mm-peak-fill)" stroke="var(--mm-peak-stroke)" stroke-width="2"/>
-<text x="190" y="678" text-anchor="middle" font-size="14" font-weight="700" fill="var(--mm-peak-title)">우르드바다누라사나</text>
-<text x="190" y="698" text-anchor="middle" font-size="11" fill="var(--mm-peak-sub)">피크 · 40분</text>
+<rect x="30" y="654" width="320" height="58" rx="10" fill="var(--mm-step-fill)" stroke="var(--mm-step-stroke)" stroke-width="1"/>
+<text x="190" y="678" text-anchor="middle" font-size="14" font-weight="600" fill="var(--mm-step-title)">바람빼기</text>
+<text x="190" y="698" text-anchor="middle" font-size="11" fill="var(--mm-step-sub)">정리 · 회복</text>
+<line x1="190" y1="712" x2="190" y2="732" stroke="var(--mm-line)" stroke-width="1.5"/>
+<rect x="30" y="732" width="320" height="58" rx="10" fill="var(--mm-peak-fill)" stroke="var(--mm-peak-stroke)" stroke-width="2"/>
+<text x="190" y="756" text-anchor="middle" font-size="14" font-weight="700" fill="var(--mm-peak-title)">우르드바다누라사나</text>
+<text x="190" y="776" text-anchor="middle" font-size="11" fill="var(--mm-peak-sub)">피크 · 40분</text>
 </svg>

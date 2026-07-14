@@ -28,7 +28,7 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 | 로컬 경로 | `~/Projects/yoga-sequence-notes` |
 | MD | `sequences/*.md` |
 | 프롬프트 | `sequences/prompts/*.prompt.txt` |
-| 마인드맵 | `public/mindmaps/seq{N}-mindmap.svg` |
+| 마인드맵 | `public/mindmaps/seq{N}-mindmap.svg`를 직접 `img`로 넣지 말고 `<Mindmap name="seq{N}" />`로 렌더링 |
 | 로컬 미리보기 | `npm run dev` → http://localhost:5173 |
 | Production | https://yoga-sequence-notes.vercel.app |
 
@@ -54,13 +54,30 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 **그 외 테마 (힐링 등)**
 1. `sequences/seq{N}-*.md` 작성 또는 수정
    - **참고 링크 (선택)**: 제목 라인에 · `[수업명](/link)` 추가 (독립 섹션 X, 인라인만)
-2. `python3 scripts/generate-mindmap.py seq{N}` (필요 시 preset 추가)
+2. 프롬프트에서 본문이 바뀌었거나 MD를 다시 썼다면 `python3 scripts/generate-mindmap.py seq{N}`로 **반드시 마인드맵 재생성**
+   - 섹션명·부제가 바뀌면 `scripts/generate-mindmap.py`의 `PRESETS`도 먼저 맞춘 뒤 생성
+   - 생성 후 `public/mindmaps/seq{N}-mindmap.svg`가 실제로 갱신됐는지 확인
 3. 신규 시퀀스면 `sequences/index.md` + `.vitepress/config.ts` 업데이트
 4. `node scripts/validate-sequence.js` 실행
 5. **로컬 dev 서버 기동** — 아래 [로컬 서버](#로컬-서버-자동-기동) 참고
 6. 사용자에게 **미리보기 URL** 안내
 
 **수정 후에도 동일** — MD/마인드맵/sidebar 갱신 → validate → dev 서버 확인 → URL 안내.
+
+**아사나 세분화 규칙**
+- 엎드린 흐름이 들어오면 `마카라사나` / `부장가사나` / `다누라사나`를 **하나의 표 안에서** 정리한다. 표를 여러 개로 쪼개지 말고, 포즈명이 바뀌는 지점에서 시작 행을 다시 써서 블록 경계를 보여준다.
+- 한 섹션 안에서 아사나가 바뀌어도 표는 유지하고, `**아사나명**` 행을 반복해서 새 블록처럼 읽히게 만든다.
+- 단순 휴식형 엎드림, 팔로 밀어 올리는 백벤드, 다리 잡고 올리는 백벤드는 서로 다른 아사나로 취급한다.
+- 사용자가 한 블록 안에서 여러 아사나 이름을 함께 써도, 실제 cue가 바뀌면 MD에서는 아사나 단위를 나눠 읽기 쉽게 정리한다.
+- 마인드맵 preset도 이 분리 기준에 맞게 섹션 제목이나 부제를 조정한다.
+- 마인드맵 SVG는 CSS 변수로 색을 먹이므로, MD에서 직접 이미지 링크로 참조하지 말고 반드시 `Mindmap` 컴포넌트로 넣는다. 그래야 라이트/다크 모드와 배경이 정상 렌더링된다.
+
+**오타 보정 규칙**
+- 사용자가 준 프롬프트나 기존 초안에 보이는 명백한 오타는 MD로 옮길 때 자연스럽게 보정한다.
+- 맞춤법이 흔들려도 cue 의미가 분명하면 의미를 유지하면서 표준 표기로 정리한다.
+- 예: `옆구리가 길어지개` → `옆구리가 길어지게`
+- 예: `오른족` → `오른쪽`
+- 예: `합창`이 의도상 `합장`이면 문맥상 맞는 표현으로 보정한다.
 
 ### 🔄 프롬프트 변경 시 (기존 시퀀스)
 
@@ -73,7 +90,8 @@ description: Organize yoga class sequences as markdown notes with mind-map image
 5. **마인드맵 업데이트 검토**:
    - 변경된 섹션이 **마인드맵 제목/부제와 관련**있으면 `scripts/generate-mindmap.py` 스크립트 수정
    - 마인드맵 preset 데이터와 실제 시퀀스가 일치하는지 확인
-   - 필요하면 `python3 scripts/generate-mindmap.py seq{N}` 재생성
+   - 본문을 다시 썼다면 `python3 scripts/generate-mindmap.py seq{N}` 재생성
+   - 생성 후 `public/mindmaps/seq{N}-mindmap.svg`가 갱신됐는지 확인
 6. validate · dev 미리보기 · URL 안내
 
 **예시 1 (섹션명 변경 X):**
