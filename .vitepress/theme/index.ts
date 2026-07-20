@@ -22,6 +22,10 @@ export default {
 
     if (typeof window !== 'undefined') {
       loadSidebarHiddenPref()
+      // load mermaid client to render mermaid codeblocks in markdown
+      // keep as non-blocking dynamic import
+      // non-blocking dynamic import of mermaid client (avoid top-level await)
+      import('./mermaid-client.js').catch(() => {})
     }
   },
 }
