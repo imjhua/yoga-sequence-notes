@@ -70,6 +70,7 @@ export async function fetchSequenceList(): Promise<SequenceListItem[]> {
     return json.items as SequenceListItem[]
   } catch {
     // 프로덕션 폴백: 정적 목록 반환
+    // 왼쪽 사이드바 목록은 나오는데? 개선 필요
     return [
       {
         kind: 'md',
