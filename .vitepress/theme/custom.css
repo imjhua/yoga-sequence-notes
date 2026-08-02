@@ -313,8 +313,6 @@ html.dark .mindmap-wrap {
   }
 
   .VPDoc .content-container {
-    padding-left: 0;
-    padding-right: 0;
     max-width: 100%;
   }
 
@@ -323,7 +321,7 @@ html.dark .mindmap-wrap {
   }
 
   .vp-doc {
-    padding: 0 0.5rem 1rem !important;
+    padding: 0 0.75rem 1rem !important;
   }
 
   /* h2 — 전역 규칙과 동일, 모바일 여백만 축소 */
@@ -372,7 +370,7 @@ html.dark .mindmap-wrap {
   }
 
   .vp-doc table {
-    margin: 0.75rem -0.5rem;
+    margin: 0.75rem -0.25rem;
     border-radius: 0;
   }
 
@@ -386,11 +384,13 @@ html.dark .mindmap-wrap {
   .vp-doc table:not(:has(th:nth-child(4))) th:nth-child(2),
   .vp-doc table:not(:has(th:nth-child(4))) td:nth-child(2) {
     width: 10%;
+    word-break: normal;
   }
 
   .vp-doc table:not(:has(th:nth-child(4))) th:nth-child(3),
   .vp-doc table:not(:has(th:nth-child(4))) td:nth-child(3) {
     width: 70%;
+    word-break: break-word;
   }
 
   .vp-doc table:has(th:nth-child(4)):not(.sequence-list-table) th:nth-child(1),
@@ -431,6 +431,12 @@ html.dark .mindmap-wrap {
   /* 로컬 네비(시퀀스 메뉴 바) 컴팩트 */
   .VPLocalNav .menu {
     padding: 8px 12px 7px;
+  }
+
+  @media (max-width: 768px) {
+    .VPLocalNav .menu {
+      display: none !important;
+    }
   }
 
   .VPLocalNav .container {
@@ -2141,5 +2147,19 @@ html.sidebar-hidden .VPDoc {
   .field-label {
     display: block;
     margin-bottom: 0.15rem;
+  }
+
+}
+
+@media (max-width: 1000px) {
+  .VPLocalNav .container{
+    display: none;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .VPNavBar .content-body > nav {
+    display: none;
   }
 }

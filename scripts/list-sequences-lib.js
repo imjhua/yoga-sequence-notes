@@ -28,49 +28,56 @@ function readMdMeta(slug) {
 
 export function listMdSequences() {
   const content = fs.readFileSync(configPath, 'utf-8')
+  const blockMatch = content.match(/export const mdSidebarItems = \[([\s\S]*?)\]/)
+  if (!blockMatch) return []
+
   const items = []
-  const re = /\{\s*text:\s*'([^']*)',\s*link:\s*'\/sequences\/([^']+)'\s*\}/g
-  let match = re.exec(content)
+  const re = /\{\s*text:\s*'([^']*)',\s*link:\s*'([^']*)'\s*\}/g
+  let match = re.exec(blockMatch[1])
 
   while (match) {
     const title = match[1]
-    const linkPath = match[2].replace(/\/$/, '')
-    if (linkPath === 'vinyasa' || linkPath.startsWith('vinyasa/')) {
-      match = re.exec(content)
-      continue
-    }
-
+    const link = match[2]
+    const linkPath = link.replace(/^\/sequences\//, '').replace(/\/$/, '')
     const meta = readMdMeta(linkPath)
     items.push({
       kind: 'md',
       id: linkPath,
       title,
       focus: meta.focus,
-      link: `/sequences/${linkPath}`,
+      link,
       updated: meta.updated,
     })
-    match = re.exec(content)
+    match = re.exec(blockMatch[1])
   }
 
   return items
 }
 
-export function listSequences() {
+export function vinyasaSavedPages() {
   const manifest = readManifest()
-  const vinyasa = manifest.sequences.map((s) => {
-    const hasPage = fs.existsSync(path.join(vinyasaDir, `${s.id}.md`))
+  return manifest.sequences
+    .filter((s) => fs.existsSync(path.join(vinyasaDir, `${s.id}.md`)))
+    .map((s) => ({
+      text: `빈야사-${s.title}`,
+      link: `/sequences/vinyasa/${s.id}`,
+    }))
+}
+
+export function listSequences() {
+  const vinyasa = vinyasaSavedPages().map(({ text, link }) => {
+    const id = link.replace(/^\/sequences\/vinyasa\//, '')
+    const saved = readManifest().sequences.find((s) => s.id === id)
     return {
       kind: 'vinyasa',
-      id: s.id,
-      title: hasPage ? `빈야사-${s.title}` : s.title,
+      id,
+      title: text,
       focus: '팝송 가사 플로우',
-      link: hasPage ? `/sequences/vinyasa/${s.id}` : '/sequences/vinyasa/',
-      updated: s.updatedAt?.slice(0, 10) ?? '',
+      link,
+      updated: saved?.updatedAt?.slice(0, 10) ?? '',
     }
   })
   const md = listMdSequences()
 
-  return [...vinyasa, ...md].sort((a, b) =>
-    (b.updated || '').localeCompare(a.updated || ''),
-  )
+  return [...vinyasa, ...md]
 }
