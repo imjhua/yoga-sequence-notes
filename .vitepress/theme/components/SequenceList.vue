@@ -56,7 +56,7 @@ async function removeItem(item: SequenceListItem) {
   const label = item.kind === 'vinyasa' ? `${item.title} (빈야사)` : item.title
   const detail = item.kind === 'vinyasa'
     ? `· ${item.id}.json\n· manifest · prompt (있으면)`
-    : `· ${item.id}.md\n· sidebar · prompt · mindmap (있으면)`
+    : `· ${item.id}.md`
 
   if (!confirm(`「${label}」 항목을 삭제할까요?\n\n${detail}`)) return
 
