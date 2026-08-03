@@ -21,7 +21,6 @@
 .vp-doc h2 {
   font-size: 1.2rem;
   margin: 1.25rem 0 0.5rem;
-  padding-top: 0.75rem;
   padding-bottom: 0;
   border-top: 1px solid var(--vp-c-divider);
   border-bottom: none !important;
