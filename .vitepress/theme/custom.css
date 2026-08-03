@@ -306,11 +306,6 @@ html.dark .mindmap-wrap {
 
 /* ── 모바일: 여백 최소화, 컨텐츠 집중 ── */
 @media (max-width: 768px) {
-  /* VitePress 기본: padding 32px 24px 96px → 축소 */
-  .VPDoc {
-    padding: 0.75rem 0.5rem 2rem !important;
-  }
-
   .VPDoc .content-container {
     max-width: 100%;
   }
@@ -319,9 +314,9 @@ html.dark .mindmap-wrap {
     padding: 0 !important;
   }
 
-  .vp-doc {
+  /* .vp-doc {
     padding: 0 0.75rem 1rem !important;
-  }
+  } */
 
   /* h2 — 전역 규칙과 동일, 모바일 여백만 축소 */
   .vp-doc h2 {
@@ -369,7 +364,7 @@ html.dark .mindmap-wrap {
   }
 
   .vp-doc table {
-    margin: 0.75rem -0.25rem;
+    margin: 0;
     border-radius: 0;
   }
 

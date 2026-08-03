@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref } from 'vue'
 import { clearDraft } from '../lyricFlow'
 import {
   deleteMdFromServer,
@@ -12,8 +12,6 @@ const items = ref<SequenceListItem[]>([])
 const loading = ref(true)
 const deletingId = ref('')
 const message = ref('')
-
-const isDev = computed(() => import.meta.env.DEV)
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return '—'
@@ -75,7 +73,7 @@ async function removeItem(item: SequenceListItem) {
     message.value = `삭제됨 · ${label} (sidebar 반영: 페이지 새로고침)`
     await load()
   } catch (e) {
-    message.value = e instanceof Error ? e.message : '삭제 실패 (로컬 dev에서만 가능)'
+    message.value = e instanceof Error ? e.message : '삭제 실패'
   } finally {
     deletingId.value = ''
   }
@@ -95,14 +93,14 @@ onMounted(load)
         <col class="sequence-list-col-class">
         <col class="sequence-list-col-focus">
         <col class="sequence-list-col-date">
-        <col v-if="isDev" class="sequence-list-col-actions">
+        <col class="sequence-list-col-actions">
       </colgroup>
       <thead>
         <tr>
           <th scope="col">수업</th>
           <th scope="col">포커스</th>
           <th scope="col">날짜</th>
-          <th v-if="isDev" scope="col" class="sequence-list-actions-col">삭제</th>
+          <th scope="col" class="sequence-list-actions-col">삭제</th>
         </tr>
       </thead>
       <tbody>
@@ -112,7 +110,7 @@ onMounted(load)
           </td>
           <td>{{ item.focus || '—' }}</td>
           <td>{{ formatDate(item.updated) }}</td>
-          <td v-if="isDev" class="sequence-list-actions-col">
+          <td class="sequence-list-actions-col">
             <button
               type="button"
               class="sequence-list-delete"
