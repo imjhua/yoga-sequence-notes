@@ -16,6 +16,7 @@ export const mdSidebarItems = [
   { text: '빈야사-아르다찬드라사나', link: '/sequences/seq4-ardha-chandrasana' },
   { text: '힐링-몸활짝 열기', link: '/sequences/seq5-block-leg' },
   { text: '하타-우르드바다누라사나', link: '/sequences/seq6-hatha-urdhva-danurasana' },
+  { text: '힐링-손목강화 & 차투랑가', link: '/sequences/seq7-healing-wrist-chaturanga' },
 ]
 
 const vinyasaPages = vinyasaSavedPages()
