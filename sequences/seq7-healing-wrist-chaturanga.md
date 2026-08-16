@@ -134,10 +134,6 @@ source_prompt: sequences/prompts/seq7-healing-wrist-chaturanga.prompt.txt
 | **우바야파당구쉬타** | 1 | 골반서기 |
 | **사바사나** | 1 | 휴식 |
 
-## 마인드맵
-
-<Mindmap name="seq7" />
-
 ## 초기 프롬프트
 
 <script setup>

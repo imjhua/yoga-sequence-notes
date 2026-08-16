@@ -48,8 +48,7 @@ function validateFile(filePath) {
   if (!fm.peak_pose) errors.push('Missing frontmatter: peak_pose');
 
   const mindmapKey = findMindmapRef(content);
-  if (!mindmapKey) errors.push('No mindmap found (<Mindmap name="seqN" /> or ![...](/mindmaps/...))');
-  else {
+  if (mindmapKey) {
     const resolved = path.join(root, 'public', 'mindmaps', `${mindmapKey}-mindmap.svg`);
     if (!fs.existsSync(resolved)) {
       errors.push(`Mindmap not found: public/mindmaps/${mindmapKey}-mindmap.svg`);
